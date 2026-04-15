@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Sourcing Mastery | Complete Learning Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1117;
+    --paper: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --rust: #b84c2a;
+    --teal: #1a6b6b;
+    --teal-light: #e8f4f4;
+    --beginner: #2d6a4f;
+    --beginner-light: #d8f3dc;
+    --intermediate: #1d4e89;
+    --intermediate-light: #dbeafe;
+    --advanced: #7b2d8b;
+    --advanced-light: #f3e8ff;
+    --ai: #b84c2a;
+    --ai-light: #fdecea;
+    --border: #d4c9b0;
+    --shadow: rgba(13,17,23,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ─── HERO ─────────────────────────────────────── */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent, transparent 40px,
+      rgba(201,168,76,0.04) 40px, rgba(201,168,76,0.04) 41px
+    );
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 17px;
+    color: #c0b89a;
+    max-width: 680px;
+    margin-bottom: 30px;
+  }
+  .hero-stats {
+    display: flex; gap: 40px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-label { font-size: 12px; color: #8a8070; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ─── NAV ───────────────────────────────────────── */
+  .nav-sticky {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    overflow-x: auto;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 0;
+  }
+  .nav-btn {
+    padding: 13px 18px;
+    color: #8a8070;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none; background: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+  }
+  .nav-btn:hover, .nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav-btn.b { --c: var(--beginner); }
+  .nav-btn.i { --c: var(--intermediate); }
+  .nav-btn.a { --c: var(--advanced); }
+  .nav-btn.ai { --c: var(--rust); }
+
+  /* ─── SECTIONS ──────────────────────────────────── */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .content-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* ─── LEVEL HEADER ──────────────────────────────── */
+  .level-header {
+    padding: 36px 40px;
+    margin-bottom: 36px;
+    border-left: 6px solid;
+    position: relative;
+  }
+  .level-header.beginner { background: var(--beginner-light); border-color: var(--beginner); }
+  .level-header.intermediate { background: var(--intermediate-light); border-color: var(--intermediate); }
+  .level-header.advanced { background: var(--advanced-light); border-color: var(--advanced); }
+  .level-header.ai-section { background: var(--ai-light); border-color: var(--ai); }
+  .level-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .level-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .level-header p { color: #555; font-size: 15px; }
+
+  /* ─── MODULES ───────────────────────────────────── */
+  .module {
+    background: white;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .module-header {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: background .2s;
+  }
+  .module-header:hover { background: #fafaf8; }
+  .module-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 32px;
+    height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 2px;
+    color: white;
+  }
+  .beginner .module-num { background: var(--beginner); }
+  .intermediate .module-num { background: var(--intermediate); }
+  .advanced .module-num { background: var(--advanced); }
+  .ai-s .module-num { background: var(--ai); }
+
+  .module-title { font-weight: 700; font-size: 15px; flex: 1; }
+  .module-arrow { font-size: 18px; color: #aaa; transition: transform .3s; }
+  .module.open .module-arrow { transform: rotate(180deg); }
+  .module-body { display: none; padding: 24px 28px; border-top: 1px solid var(--border); }
+  .module.open .module-body { display: block; }
+
+  /* ─── TYPOGRAPHY ────────────────────────────────── */
+  h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin: 24px 0 10px; color: var(--ink); }
+  h4 { font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); margin: 18px 0 8px; }
+  p { margin-bottom: 12px; }
+  ul, ol { margin-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 5px; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  /* ─── CALLOUTS ──────────────────────────────────── */
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: #fdf8ee;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .callout.tip { border-color: var(--teal); background: var(--teal-light); }
+  .callout.warning { border-color: var(--rust); background: #fdf0ec; }
+  .callout-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* ─── TABLES ────────────────────────────────────── */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead { background: var(--ink); color: var(--paper); }
+  th { padding: 10px 14px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  td { padding: 9px 14px; border-bottom: 1px solid #e8e2d6; vertical-align: top; }
+  tr:nth-child(even) td { background: #faf8f3; }
+  tr:hover td { background: #f0ece0; }
+
+  /* ─── FLOWCHART ─────────────────────────────────── */
+  .flow { display: flex; flex-wrap: wrap; gap: 0; margin: 20px 0; align-items: center; }
+  .flow-step {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 16px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: center;
+    min-width: 100px;
+    position: relative;
+  }
+  .flow-step.b { background: var(--beginner); }
+  .flow-step.i { background: var(--intermediate); }
+  .flow-step.a { background: var(--advanced); }
+  .flow-step.gold { background: var(--gold); color: var(--ink); }
+  .flow-arrow { font-size: 20px; color: var(--gold); padding: 0 6px; }
+  .flow-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; opacity: 0.7; display: block; }
+
+  /* ─── MATRIX ────────────────────────────────────── */
+  .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 16px 0; background: var(--ink); border: 2px solid var(--ink); }
+  .matrix-cell { padding: 16px; font-size: 13px; }
+  .matrix-cell.q1 { background: #fdecea; }
+  .matrix-cell.q2 { background: #d8f3dc; }
+  .matrix-cell.q3 { background: #fff3cd; }
+  .matrix-cell.q4 { background: var(--intermediate-light); }
+  .matrix-label { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block; }
+  .matrix-axis { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 6px; color: var(--paper); background: var(--ink); }
+
+  /* ─── QUIZ ──────────────────────────────────────── */
+  .quiz-q { background: #fafaf8; border: 1px solid var(--border); padding: 16px 20px; margin: 12px 0; border-radius: 2px; }
+  .quiz-q p { font-weight: 700; margin-bottom: 10px; }
+  .quiz-option {
+    display: block; padding: 8px 14px; margin: 5px 0;
+    background: white; border: 1px solid var(--border);
+    cursor: pointer; font-size: 13.5px; transition: background .15s;
+    border-radius: 2px;
+  }
+  .quiz-option:hover { background: var(--gold-light); }
+  .quiz-option.correct { background: var(--beginner-light); border-color: var(--beginner); font-weight: 700; }
+  .quiz-option.wrong { background: #fdecea; border-color: var(--rust); }
+
+  /* ─── INTERVIEW ─────────────────────────────────── */
+  .iq { border: 1px solid var(--border); margin: 10px 0; border-radius: 2px; overflow: hidden; }
+  .iq-q { padding: 12px 18px; font-weight: 700; background: #fafaf8; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+  .iq-a { display: none; padding: 14px 18px; background: white; border-top: 1px solid var(--border); font-size: 13.5px; line-height: 1.7; }
+  .iq.open .iq-a { display: block; }
+
+  /* ─── TEMPLATE BOX ──────────────────────────────── */
+  .template-box {
+    background: #f0ece0;
+    border: 2px dashed var(--gold);
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+  }
+
+  /* ─── CHEAT SHEET ───────────────────────────────── */
+  .cheat { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 16px 0; }
+  .cheat-card {
+    padding: 16px 18px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  .cheat-card h4 { margin-top: 0; }
+  .cheat-card.g { background: var(--beginner-light); border-color: var(--beginner); }
+  .cheat-card.b { background: var(--intermediate-light); border-color: var(--intermediate); }
+  .cheat-card.p { background: var(--advanced-light); border-color: var(--advanced); }
+  .cheat-card.gold { background: #fdf8ee; border-color: var(--gold); }
+
+  /* ─── TAGS ──────────────────────────────────────── */
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 2px; }
+  .tag.g { background: var(--beginner-light); color: var(--beginner); }
+  .tag.b { background: var(--intermediate-light); color: var(--intermediate); }
+  .tag.p { background: var(--advanced-light); color: var(--advanced); }
+  .tag.gold { background: var(--gold-light); color: #7a6020; }
+
+  /* ─── MISC ──────────────────────────────────────── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  code { background: #e8e2d6; padding: 1px 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; border-radius: 2px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:640px) { .two-col { grid-template-columns: 1fr; } }
+
+  .icon { font-size: 22px; margin-right: 8px; }
+  .emoji { font-size: 18px; }
+
+  /* scroll margin */
+  [id] { scroll-margin-top: 60px; }
+
+  .toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 10px; margin: 20px 0; }
+  .toc-item { background: white; border: 1px solid var(--border); padding: 12px 16px; cursor: pointer; font-size: 13.5px; font-weight: 700; transition: all .2s; }
+  .toc-item:hover { background: var(--gold-light); border-color: var(--gold); }
+  .toc-item small { display: block; font-weight: 400; font-size: 11.5px; color: #777; margin-top: 2px; }
+
+  /* progress bar */
+  .progress-bar { height: 4px; background: var(--gold); width: 0; transition: width .5s; position: fixed; top: 0; left: 0; z-index: 999; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">📚 Complete Mastery Program</span>
+    <h1>Strategic <span>Sourcing</span><br>Mastery Guide</h1>
+    <p>A world-class, end-to-end learning ecosystem crafted by a 25+ year procurement transformation leader. From foundational concepts to enterprise strategy design.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Levels</span></div>
+      <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Core Modules</span></div>
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Interview Q&A</span></div>
+      <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Templates</span></div>
+      <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Case Studies</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-sticky">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('overview')">🏠 Overview</button>
+    <button class="nav-btn b" onclick="showSection('beginner')">📘 Beginner</button>
+    <button class="nav-btn i" onclick="showSection('intermediate')">📗 Intermediate</button>
+    <button class="nav-btn a" onclick="showSection('advanced')">📕 Advanced</button>
+    <button class="nav-btn ai" onclick="showSection('ai')">🤖 AI & GenAI</button>
+    <button class="nav-btn" onclick="showSection('interview')">🎯 Interview Prep</button>
+    <button class="nav-btn" onclick="showSection('toolkit')">🛠 Toolkit</button>
+    <button class="nav-btn" onclick="showSection('cheatsheet')">📋 Cheat Sheets</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     OVERVIEW
+════════════════════════════════════════════════════════════ -->
+<section id="overview" class="section active">
+<div class="content-wrap">
+  <div class="level-header ai-section">
+    <span class="level-tag" style="color:var(--ai)">Program Guide</span>
+    <h2>How to Use This Learning Program</h2>
+    <p>This is a structured, self-paced learning ecosystem. Navigate using the top menu. Click any module to expand it. All content is organized from simple → complex.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-item" onclick="showSection('beginner')">📘 Beginner Level<small>0–2 yrs · Foundation & Concepts</small></div>
+    <div class="toc-item" onclick="showSection('intermediate')">📗 Intermediate Level<small>5–10 yrs · Practitioner Skills</small></div>
+    <div class="toc-item" onclick="showSection('advanced')">📕 Advanced Level<small>20–25+ yrs · Strategy & Leadership</small></div>
+    <div class="toc-item" onclick="showSection('ai')">🤖 AI & GenAI<small>Future of Procurement</small></div>
+    <div class="toc-item" onclick="showSection('interview')">🎯 Interview Prep<small>50+ Q&A with Model Answers</small></div>
+    <div class="toc-item" onclick="showSection('toolkit')">🛠 Toolkit<small>RFP, Scorecards, Templates</small></div>
+    <div class="toc-item" onclick="showSection('cheatsheet')">📋 Cheat Sheets<small>Quick Reference Summaries</small></div>
+  </div>
+
+  <div class="module open">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">01</div>
+      <div class="module-title">What is Strategic Sourcing? — The Big Picture</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>The Simple Definition</h3>
+      <p><strong>Strategic Sourcing</strong> is the process of systematically evaluating and selecting suppliers to maximize value for your organization — not just looking for the cheapest price, but finding the best total value over time.</p>
+
+      <div class="callout">
+        <span class="callout-label">💡 Analogy</span>
+        Think of buying a car. A non-strategic buyer asks: "What's the cheapest car?" A strategic buyer asks: "What car gives me the best total value — fuel efficiency, maintenance cost, resale value, safety, and reliability?" That's strategic sourcing.
+      </div>
+
+      <h3>Evolution of Procurement</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Era</th><th>Focus</th><th>Mindset</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>1960s–70s</td><td>Buying & Order Processing</td><td>Transactional</td><td>Get it done</td></tr>
+            <tr><td>1980s</td><td>Cost Reduction</td><td>Price negotiation</td><td>Save money</td></tr>
+            <tr><td>1990s</td><td>Supplier Management</td><td>Vendor consolidation</td><td>Efficiency</td></tr>
+            <tr><td>2000s</td><td>Strategic Sourcing</td><td>Category-based, TCO</td><td>Value creation</td></tr>
+            <tr><td>2010s</td><td>Digital Procurement</td><td>Data-driven, S2P</td><td>Insights & speed</td></tr>
+            <tr><td>2020s+</td><td>AI-Powered Autonomous</td><td>Predictive, sustainable</td><td>Resilience & innovation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Strategic Sourcing vs Procurement vs Category Management</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Concept</th><th>What it is</th><th>Time Horizon</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Procurement</strong></td><td>Day-to-day buying activities — raising POs, receiving goods, paying invoices</td><td>Operational (daily)</td><td>Buying 100 laptops today</td></tr>
+            <tr><td><strong>Strategic Sourcing</strong></td><td>Structured process to identify, evaluate, and select suppliers for categories</td><td>Tactical (quarterly/annual)</td><td>Deciding who supplies all IT equipment for 3 years</td></tr>
+            <tr><td><strong>Category Management</strong></td><td>Ongoing management of a spend category as a business unit with its own strategy</td><td>Strategic (multi-year)</td><td>Managing the entire "Technology Hardware" category globally</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">02</div>
+      <div class="module-title">The 7-Step Strategic Sourcing Process — Master Framework</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>This is the <strong>universal framework</strong> used by McKinsey, BCG, and Fortune 500 procurement teams worldwide. Every sourcing exercise follows these 7 steps.</p>
+      <div class="flow" style="flex-wrap:wrap; gap:4px; margin:20px 0;">
+        <div class="flow-step gold"><span class="flow-num">STEP 1</span>Spend<br>Analysis</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#1a5276"><span class="flow-num">STEP 2</span>Supply<br>Market Analysis</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#145a32"><span class="flow-num">STEP 3</span>Develop<br>Strategy</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#6c3483"><span class="flow-num">STEP 4</span>RFI / RFP<br>Process</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#7b3f00"><span class="flow-num">STEP 5</span>Evaluate &<br>Negotiate</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#1a5276"><span class="flow-num">STEP 6</span>Award<br>Contract</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:#117864"><span class="flow-num">STEP 7</span>Manage &<br>Improve</div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Step</th><th>Key Question</th><th>Key Output</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Spend Analysis</td><td>How much are we spending, on what, and with whom?</td><td>Spend cube, category map</td></tr>
+            <tr><td>2</td><td>Supply Market Analysis</td><td>Who are the players? What's the competitive landscape?</td><td>Porter's 5 Forces analysis, supplier landscape</td></tr>
+            <tr><td>3</td><td>Develop Sourcing Strategy</td><td>Should we single/dual/multi-source? Global or local?</td><td>Sourcing strategy document</td></tr>
+            <tr><td>4</td><td>RFI / RFQ / RFP Process</td><td>How do we identify and qualify suppliers?</td><td>RFP document, bid responses</td></tr>
+            <tr><td>5</td><td>Evaluate & Negotiate</td><td>Who is the best supplier? What is our BATNA?</td><td>Supplier scorecard, negotiated terms</td></tr>
+            <tr><td>6</td><td>Award & Contract</td><td>How do we formalize the agreement?</td><td>Signed contract, SLAs</td></tr>
+            <tr><td>7</td><td>Manage & Continuously Improve</td><td>Is the supplier delivering? How do we improve?</td><td>Supplier scorecards, QBRs, savings tracking</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BEGINNER
+════════════════════════════════════════════════════════════ -->
+<section id="beginner" class="section">
+<div class="content-wrap">
+  <div class="level-header beginner">
+    <span class="level-tag" style="color:var(--beginner)">📘 Level 1</span>
+    <h2>Beginner Level — Foundation & Concepts</h2>
+    <p>Target: 0–2 years experience | Goal: Understand procurement fundamentals, key terminology, and the sourcing cycle well enough to land your first role.</p>
+  </div>
+
+  <!-- Module B1 -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B1</div>
+      <div class="module-title">Key Terminology Every Buyer Must Know</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Term</th><th>Full Form</th><th>What it Means (Simply)</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RFI</strong></td><td>Request for Information</td><td>Asking suppliers "Tell me about yourself"</td><td>Sending a questionnaire to 20 potential vendors to understand their capabilities</td></tr>
+            <tr><td><strong>RFQ</strong></td><td>Request for Quotation</td><td>Asking suppliers "How much will you charge?"</td><td>Sending specs to 5 shortlisted vendors and asking for price</td></tr>
+            <tr><td><strong>RFP</strong></td><td>Request for Proposal</td><td>Asking "How will you solve my problem?"</td><td>Complex IT system sourcing where you need vendor's approach + price</td></tr>
+            <tr><td><strong>TCO</strong></td><td>Total Cost of Ownership</td><td>All costs over the full life of a purchase</td><td>Laptop price + support + maintenance + disposal = TCO</td></tr>
+            <tr><td><strong>PO</strong></td><td>Purchase Order</td><td>Official document ordering goods/services</td><td>"Please send 500 units at $10 each per our PO #12345"</td></tr>
+            <tr><td><strong>SLA</strong></td><td>Service Level Agreement</td><td>Agreed performance standards</td><td>Delivery within 48 hours, 99.9% uptime</td></tr>
+            <tr><td><strong>KPI</strong></td><td>Key Performance Indicator</td><td>Metrics to measure supplier performance</td><td>On-time delivery %, defect rate %, cost savings %</td></tr>
+            <tr><td><strong>SRM</strong></td><td>Supplier Relationship Management</td><td>How you manage your relationship with suppliers</td><td>Monthly reviews, joint improvement plans</td></tr>
+            <tr><td><strong>S2P</strong></td><td>Source-to-Pay</td><td>End-to-end process from sourcing to invoice payment</td><td>Ariba, Coupa are S2P platforms</td></tr>
+            <tr><td><strong>P2P</strong></td><td>Procure-to-Pay</td><td>Purchase requisition to invoice payment</td><td>Employee raises a PR → PO → Receipt → Payment</td></tr>
+            <tr><td><strong>Maverick Spend</strong></td><td>—</td><td>Spending outside approved channels/contracts</td><td>An employee buys office supplies from Amazon instead of the approved vendor</td></tr>
+            <tr><td><strong>Spend Under Management</strong></td><td>SUM</td><td>% of total spend that procurement manages</td><td>If procurement manages 70% of $100M spend, SUM = $70M</td></tr>
+            <tr><td><strong>BATNA</strong></td><td>Best Alternative to Negotiated Agreement</td><td>Your backup plan if negotiations fail</td><td>If Vendor A won't reduce price, Vendor B is your BATNA</td></tr>
+            <tr><td><strong>Kraljic Matrix</strong></td><td>—</td><td>Tool to categorize purchases by risk and value</td><td>Classifying suppliers into Leverage, Strategic, Bottleneck, Routine</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B2 -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B2</div>
+      <div class="module-title">Total Cost of Ownership (TCO) — Beyond the Price Tag</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="callout">
+        <span class="callout-label">💡 Core Insight</span>
+        The biggest mistake beginners make: choosing the lowest price instead of lowest total cost. Price is what you pay upfront. TCO is what you pay over the entire relationship.
+      </div>
+
+      <h3>TCO = Acquisition Cost + Operational Cost + End-of-Life Cost</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Cost Category</th><th>What's Included</th><th>Office Chair Example</th><th>Industrial Machine Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Acquisition Cost</strong></td><td>Purchase price, shipping, import duties, installation</td><td>$300 chair price + $50 delivery</td><td>$500K machine + $50K installation</td></tr>
+            <tr><td><strong>Operational Cost</strong></td><td>Energy, maintenance, repairs, training, consumables</td><td>$20/yr cushion replacement</td><td>$30K/yr energy + $20K maintenance</td></tr>
+            <tr><td><strong>End-of-Life Cost</strong></td><td>Disposal, recycling, replacement planning</td><td>$10 disposal fee</td><td>$25K decommissioning</td></tr>
+            <tr><td><strong>Hidden Costs</strong></td><td>Poor quality, delays, rework, downtime, administration</td><td>Lost productivity if uncomfortable</td><td>$200K/hr production downtime if it fails</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Practical TCO Example</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Supplier</th><th>Unit Price</th><th>Failure Rate</th><th>Support Cost/yr</th><th>5-Year TCO</th><th>Winner?</th></tr></thead>
+          <tbody>
+            <tr><td>Supplier A</td><td>$1,000</td><td>5%</td><td>$200</td><td><strong>$2,000</strong></td><td>✅ YES</td></tr>
+            <tr><td>Supplier B</td><td>$800</td><td>15%</td><td>$500</td><td><strong>$3,300</strong></td><td>❌ NO</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>Supplier B looks cheaper but costs 65% more over 5 years! Always calculate TCO.</em></p>
+    </div>
+  </div>
+
+  <!-- Module B3 -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B3</div>
+      <div class="module-title">Spend Analysis — Know Before You Buy</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p><strong>Spend Analysis</strong> is the foundation of strategic sourcing. You cannot make good sourcing decisions without knowing what you're spending, on what, and with whom.</p>
+
+      <h4>3 Core Questions of Spend Analysis</h4>
+      <ul>
+        <li><strong>What</strong> are we buying? (Categories: IT, Facilities, Raw Materials, etc.)</li>
+        <li><strong>Who</strong> are we buying from? (Supplier concentration, diversity)</li>
+        <li><strong>How much</strong> are we spending? (Total spend, by category, by business unit)</li>
+      </ul>
+
+      <h3>The Spend Cube</h3>
+      <p>The Spend Cube is a 3-dimensional view of your spending data. Think of it like a Rubik's Cube where each side shows a different perspective.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Dimension</th><th>What it Shows</th><th>Why it Matters</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Category</strong> (What)</td><td>IT, Facilities, MRO, Professional Services</td><td>Identify largest spend categories for prioritization</td></tr>
+            <tr><td><strong>Supplier</strong> (Who)</td><td>Top 10/20/50 vendors by spend</td><td>Identify consolidation opportunities, dependency risks</td></tr>
+            <tr><td><strong>Business Unit</strong> (Where)</td><td>Spend by department, region, plant</td><td>Find maverick spend, drive compliance</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Spend Analysis Steps</h4>
+      <ol>
+        <li>Extract data from ERP/finance systems (SAP, Oracle)</li>
+        <li>Cleanse data (fix supplier name variations, duplicates)</li>
+        <li>Classify spend into categories (use UNSPSC codes)</li>
+        <li>Analyze patterns and find savings opportunities</li>
+        <li>Prioritize categories for strategic sourcing</li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="callout-label">📊 Rule of Thumb</span>
+        Pareto Principle applies: 80% of your spend is with 20% of your suppliers. Focus strategic energy on that 20%.
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B4 -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B4</div>
+      <div class="module-title">Beginner Case Study — Sourcing Office Supplies</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="callout" style="background:#f0f7ff;border-color:var(--intermediate)">
+        <span class="callout-label" style="color:var(--intermediate)">📁 Case Study</span>
+        <strong>Company:</strong> ABC Manufacturing (1,500 employees)<br>
+        <strong>Problem:</strong> Office supplies (paper, pens, toners, stationery) are being bought by each department independently from 25+ different vendors. Total annual spend: $400,000. No contracts, no volume discounts, lots of maverick buying.
+      </div>
+
+      <h3>Solution Using the 7-Step Model</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Action Taken</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>1. Spend Analysis</td><td>Pulled 12 months of purchase data; found 25 vendors, $400K spend, no standard items</td><td>Identified top 5 items = 60% of spend</td></tr>
+            <tr><td>2. Market Analysis</td><td>Found 3 large national office supply distributors (Staples, W.B. Mason, etc.)</td><td>Competitive market — good for negotiation</td></tr>
+            <tr><td>3. Strategy</td><td>Decided: single-source contract with volume commitment for price reduction</td><td>Strategy: consolidate to 1–2 vendors</td></tr>
+            <tr><td>4. RFQ Process</td><td>Sent RFQ to 5 vendors with standard item list and volume estimates</td><td>Received 5 competitive bids</td></tr>
+            <tr><td>5. Negotiate</td><td>Used competing bids as leverage; negotiated 18% discount + free delivery</td><td>Best price + service commitment</td></tr>
+            <tr><td>6. Contract Award</td><td>Signed 2-year contract with preferred vendor; punch-out catalog in ERP</td><td>Employees order from approved catalog only</td></tr>
+            <tr><td>7. Manage</td><td>Monthly spend reports; quarterly review with vendor</td><td>Compliance 92%, savings sustained</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">✅ Result</span>
+        Savings: $72,000/year (18%) | Vendor count: 25 → 1 | Maverick spend eliminated | Admin time saved: 2 FTEs
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B5 — Quiz -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B5</div>
+      <div class="module-title">Beginner Quiz — Test Your Knowledge</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="quiz-q" id="q1">
+        <p>Q1: You receive two bids: Vendor A at $500/unit, Vendor B at $450/unit. What should you evaluate before making a decision?</p>
+        <span class="quiz-option" onclick="answerQuiz('q1',this,false)">A) Always choose Vendor B — it's cheaper</span>
+        <span class="quiz-option" onclick="answerQuiz('q1',this,true)">B) Calculate Total Cost of Ownership for both vendors</span>
+        <span class="quiz-option" onclick="answerQuiz('q1',this,false)">C) Ask your manager</span>
+        <span class="quiz-option" onclick="answerQuiz('q1',this,false)">D) Choose Vendor A because they're more expensive so must be better quality</span>
+      </div>
+      <div class="quiz-q" id="q2">
+        <p>Q2: What is "Maverick Spending"?</p>
+        <span class="quiz-option" onclick="answerQuiz('q2',this,false)">A) Spending on unusual or creative products</span>
+        <span class="quiz-option" onclick="answerQuiz('q2',this,false)">B) Spending approved by senior management</span>
+        <span class="quiz-option" onclick="answerQuiz('q2',this,true)">C) Spending outside approved contracts and processes</span>
+        <span class="quiz-option" onclick="answerQuiz('q2',this,false)">D) Spending on marketing activities</span>
+      </div>
+      <div class="quiz-q" id="q3">
+        <p>Q3: In the 7-step sourcing process, which step comes FIRST?</p>
+        <span class="quiz-option" onclick="answerQuiz('q3',this,false)">A) Send RFP to suppliers</span>
+        <span class="quiz-option" onclick="answerQuiz('q3',this,false)">B) Negotiate with suppliers</span>
+        <span class="quiz-option" onclick="answerQuiz('q3',this,true)">C) Spend Analysis</span>
+        <span class="quiz-option" onclick="answerQuiz('q3',this,false)">D) Award the contract</span>
+      </div>
+      <div class="quiz-q" id="q4">
+        <p>Q4: What does RFP stand for, and when do you use it vs. RFQ?</p>
+        <span class="quiz-option" onclick="answerQuiz('q4',this,false)">A) RFP = Request for Payment; used for complex purchases</span>
+        <span class="quiz-option" onclick="answerQuiz('q4',this,true)">B) RFP = Request for Proposal; used when you need a solution approach + price (complex). RFQ = Request for Quotation; used when specs are clear and you just need price.</span>
+        <span class="quiz-option" onclick="answerQuiz('q4',this,false)">C) They mean the same thing</span>
+        <span class="quiz-option" onclick="answerQuiz('q4',this,false)">D) RFP is informal; RFQ is formal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B6 — SRM Basics -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B6</div>
+      <div class="module-title">Supplier Relationship Management (SRM) — Basics</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>SRM is how you manage your ongoing relationship with suppliers — not just at the time of buying, but throughout the contract lifecycle.</p>
+      <div class="callout">
+        <span class="callout-label">💡 Analogy</span>
+        Think of SRM like managing a marriage. The contract is the wedding ceremony. SRM is everything that happens after — communication, performance reviews, resolving conflicts, growing together.
+      </div>
+      <h4>Basic SRM Activities</h4>
+      <ul>
+        <li><strong>Performance Reviews:</strong> Monthly/quarterly meetings to review KPIs (on-time delivery, quality, cost)</li>
+        <li><strong>Scorecards:</strong> Structured rating of supplier performance across dimensions</li>
+        <li><strong>Issue Resolution:</strong> Formal process for handling problems (complaints, delays, defects)</li>
+        <li><strong>Relationship Building:</strong> Trust-based communication, strategic alignment sessions</li>
+      </ul>
+      <h4>Basic Supplier KPIs to Track</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>KPI</th><th>Formula</th><th>Target</th></tr></thead>
+          <tbody>
+            <tr><td>On-Time Delivery (OTD)</td><td>On-time deliveries / Total deliveries × 100</td><td>>95%</td></tr>
+            <tr><td>Quality Acceptance Rate</td><td>Accepted lots / Total lots × 100</td><td>>98%</td></tr>
+            <tr><td>Invoice Accuracy</td><td>Correct invoices / Total invoices × 100</td><td>>99%</td></tr>
+            <tr><td>Response Time</td><td>Average hrs to respond to queries</td><td>&lt;24 hrs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B7 — Risk Basics -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B7</div>
+      <div class="module-title">Risk Management Basics — What Can Go Wrong?</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>Risk management in sourcing means identifying what could disrupt your supply of goods/services — and planning how to prevent or respond to it.</p>
+      <h4>Common Supply Risks</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Risk Type</th><th>Example</th><th>Simple Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>Single-Source Risk</td><td>Only one supplier makes a critical component</td><td>Qualify a second supplier</td></tr>
+            <tr><td>Financial Risk</td><td>Supplier goes bankrupt</td><td>Monitor financial health; advance orders if needed</td></tr>
+            <tr><td>Quality Risk</td><td>Supplier ships defective goods</td><td>Quality inspections, acceptance testing</td></tr>
+            <tr><td>Geopolitical Risk</td><td>Trade war causes tariffs on imports</td><td>Diversify supply base across countries</td></tr>
+            <tr><td>Natural Disaster Risk</td><td>Factory flooded, can't ship</td><td>Safety stock; alternate supplier</td></tr>
+            <tr><td>Logistics Risk</td><td>Port strike delays shipments</td><td>Multiple shipping routes; nearshoring</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning">
+        <span class="callout-label">⚠️ Real Example</span>
+        During COVID-19, companies with single-source suppliers in one country (mostly China) experienced complete supply chain shutdowns. Companies with diversified supply bases were far more resilient. This is why risk diversification is now a #1 priority.
+      </div>
+    </div>
+  </div>
+
+  <!-- Module B8 — ESG Basics -->
+  <div class="module beginner">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">B8</div>
+      <div class="module-title">ESG & Sustainable Sourcing — Why it Matters</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p><strong>ESG</strong> = Environmental, Social, and Governance. Companies are increasingly evaluated not just on financial performance but on their impact on the planet and society — including their supply chain.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Pillar</th><th>What it Means in Sourcing</th><th>Example Requirement</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Environmental (E)</strong></td><td>Carbon footprint, waste, packaging, renewable energy use</td><td>"Supplier must have ISO 14001 certification and report Scope 3 emissions"</td></tr>
+            <tr><td><strong>Social (S)</strong></td><td>Fair labor, no child labor, health & safety, diversity</td><td>"Supplier must comply with SA8000 standard; no forced labor"</td></tr>
+            <tr><td><strong>Governance (G)</strong></td><td>Anti-bribery, transparency, ethical business practices</td><td>"Supplier must sign Code of Conduct; allow audit rights"</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <span class="callout-label">🌱 Why This Matters Now</span>
+        Major regulations like the EU Supply Chain Due Diligence Act and the US SEC climate disclosure rules mean companies MUST manage ESG in their supply chains — or face legal consequences.
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     INTERMEDIATE
+════════════════════════════════════════════════════════════ -->
+<section id="intermediate" class="section">
+<div class="content-wrap">
+  <div class="level-header intermediate">
+    <span class="level-tag" style="color:var(--intermediate)">📗 Level 2</span>
+    <h2>Intermediate Level — Practitioner Skills</h2>
+    <p>Target: 5–10 years experience | Goal: Master category strategy, supplier segmentation, cost modeling, negotiation, and stakeholder management.</p>
+  </div>
+
+  <!-- Module I1 — Kraljic Matrix -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I1</div>
+      <div class="module-title">Supplier Segmentation — The Kraljic Matrix</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>The <strong>Kraljic Matrix</strong> (developed by Peter Kraljic, McKinsey, 1983) is the most widely used framework to categorize your spend portfolio — and determine the right sourcing strategy for each category.</p>
+      <div class="two-col" style="align-items:start; margin:20px 0;">
+        <div>
+          <p style="text-align:center; font-size:12px; font-family:'IBM Plex Mono',monospace; margin-bottom:4px; color:#777">↑ SUPPLY RISK / COMPLEXITY</p>
+          <div class="matrix">
+            <div class="matrix-cell q1">
+              <span class="matrix-label" style="color:var(--rust)">⚡ BOTTLENECK</span>
+              Few suppliers, hard to substitute. Low spend but high risk.<br><br>
+              <strong>Strategy:</strong> Secure supply, build inventory buffer, qualify alternatives.<br>
+              <em>Example: Rare earth minerals, specialist chemicals</em>
+            </div>
+            <div class="matrix-cell q2">
+              <span class="matrix-label" style="color:var(--beginner)">⭐ STRATEGIC</span>
+              High spend + high risk. Critical to operations.<br><br>
+              <strong>Strategy:</strong> Deep partnerships, joint innovation, supplier development.<br>
+              <em>Example: Key raw materials, critical IT systems</em>
+            </div>
+            <div class="matrix-cell q3">
+              <span class="matrix-label" style="color:#7a6020">📦 ROUTINE</span>
+              Low spend + low risk. Commodity items.<br><br>
+              <strong>Strategy:</strong> Automate, simplify, consolidate. Minimize procurement effort.<br>
+              <em>Example: Office supplies, small tools, consumables</em>
+            </div>
+            <div class="matrix-cell q4">
+              <span class="matrix-label" style="color:var(--intermediate)">💰 LEVERAGE</span>
+              High spend but many suppliers available.<br><br>
+              <strong>Strategy:</strong> Competitive bidding, consolidation, hard negotiation.<br>
+              <em>Example: Packaging, transportation, IT hardware</em>
+            </div>
+          </div>
+          <p style="text-align:center; font-size:12px; font-family:'IBM Plex Mono',monospace; margin-top:4px; color:#777">LOW SPEND ←——————→ HIGH SPEND</p>
+        </div>
+        <div>
+          <h4>How to Use the Kraljic Matrix</h4>
+          <ol>
+            <li><strong>Plot categories:</strong> Assess each category on (a) spend size and (b) supply risk/complexity</li>
+            <li><strong>Segment:</strong> Place each category in one of the 4 quadrants</li>
+            <li><strong>Develop strategy:</strong> Each quadrant requires a fundamentally different approach</li>
+            <li><strong>Re-evaluate annually:</strong> Categories move over time</li>
+          </ol>
+          <div class="callout tip">
+            <span class="callout-label">Pro Tip</span>
+            Strategic quadrant suppliers deserve your most senior attention and relationship investment. Routine quadrant should be automated via catalog/e-procurement. Never spend the same effort on both.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I2 — Should-Cost Model -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I2</div>
+      <div class="module-title">Should-Cost Modeling — Know What Things SHOULD Cost</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="callout">
+        <span class="callout-label">💡 Key Concept</span>
+        A Should-Cost Model is your own calculation of what a product or service SHOULD cost to produce — based on materials, labor, overhead, and profit. It is your most powerful negotiation weapon.
+      </div>
+
+      <h3>Should-Cost Formula</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Cost Element</th><th>Component</th><th>% of Total (Example: Injection-Molded Plastic Part)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Direct Materials</strong></td><td>Raw materials, components</td><td>45%</td></tr>
+            <tr><td><strong>Direct Labor</strong></td><td>Workers directly making the product</td><td>18%</td></tr>
+            <tr><td><strong>Manufacturing Overhead</strong></td><td>Factory rent, utilities, equipment depreciation</td><td>15%</td></tr>
+            <tr><td><strong>SG&A</strong></td><td>Selling, General & Administrative expenses</td><td>10%</td></tr>
+            <tr><td><strong>Profit Margin</strong></td><td>Supplier's target profit</td><td>12%</td></tr>
+            <tr><td colspan="2"><strong>Total Should-Cost</strong></td><td><strong>100%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How to Build a Should-Cost Model (Step by Step)</h3>
+      <ol>
+        <li><strong>Understand the bill of materials (BOM)</strong> — what goes into making this product?</li>
+        <li><strong>Research commodity prices</strong> — steel, resin, copper at current market rates</li>
+        <li><strong>Estimate labor</strong> — hours required × labor rate in supplier's country</li>
+        <li><strong>Add overhead factors</strong> — typically 20–40% of direct cost for manufacturing</li>
+        <li><strong>Add reasonable profit</strong> — typically 8–15% for most industries</li>
+        <li><strong>Compare to supplier's quoted price</strong> — the gap is your negotiation target</li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="callout-label">Real World</span>
+        When a supplier quotes $150 for a part and your should-cost says $110, you enter negotiation knowing there's $40 of potential savings. You can say: "Our cost model suggests this part should be around $115–120. Help me understand the cost drivers that account for the difference."
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I3 — Negotiation -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I3</div>
+      <div class="module-title">Negotiation Strategies — BATNA, ZOPA, Win-Win</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="two-col">
+        <div>
+          <h3>BATNA — Best Alternative to Negotiated Agreement</h3>
+          <p>Your BATNA is what you will do if this negotiation fails. The stronger your BATNA, the more power you have.</p>
+          <ul>
+            <li>Before any negotiation, always identify your BATNA</li>
+            <li>Work to strengthen your BATNA (qualify more suppliers)</li>
+            <li>Understand supplier's BATNA too — are they desperate for your business?</li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Example</span>
+            Negotiating with Vendor A. Your BATNA: Vendor B has quoted 10% less. This is a strong BATNA. You can walk away from Vendor A with confidence.
+          </div>
+        </div>
+        <div>
+          <h3>ZOPA — Zone of Possible Agreement</h3>
+          <p>ZOPA is the range between your maximum acceptable price and the supplier's minimum acceptable price. Any deal must fall in this zone.</p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Party</th><th>Position</th><th>Price</th></tr></thead>
+              <tbody>
+                <tr><td>Buyer's target</td><td>Wants to pay</td><td>$90</td></tr>
+                <tr><td>Buyer's maximum</td><td>Walk-away point</td><td>$110</td></tr>
+                <tr><td>Supplier's minimum</td><td>Floor price</td><td>$95</td></tr>
+                <tr><td>Supplier's ask</td><td>Opening price</td><td>$130</td></tr>
+                <tr><td colspan="2"><strong>ZOPA</strong></td><td><strong>$95–$110</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h3>The 10 Negotiation Tactics You Must Know</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tactic</th><th>How it Works</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Anchor High/Low</td><td>First mover sets the reference point for the negotiation</td><td>Buyer opens: "Based on our analysis, we'd expect pricing around $85"</td></tr>
+            <tr><td>Good Cop / Bad Cop</td><td>One negotiator is tough; the other is reasonable</td><td>"My manager won't approve anything above $100, but I can try to get you $105"</td></tr>
+            <tr><td>Nibbling</td><td>Ask for small additional concessions after deal is closed</td><td>"Great, we have a deal on price. Can you include free shipping?"</td></tr>
+            <tr><td>Silence</td><td>After stating your position, stop talking. Let supplier fill the silence</td><td>After they quote $130: say nothing. Often they'll offer a discount.</td></tr>
+            <tr><td>Competitive Tension</td><td>Let supplier know you're evaluating others</td><td>"We're reviewing proposals from 4 qualified vendors"</td></tr>
+            <tr><td>Trade-Off</td><td>Give something to get something. Never give for free</td><td>"If you can get to $100, I can commit to a 2-year contract"</td></tr>
+            <tr><td>Limited Authority</td><td>Claim you need approval for concessions</td><td>"I can agree to $108 but anything below $105 needs my VP's sign-off"</td></tr>
+            <tr><td>Deadline Pressure</td><td>Use real or artificial deadlines to create urgency</td><td>"We need to make a decision by end of week for our budget cycle"</td></tr>
+            <tr><td>Deconstruct the Price</td><td>Break price into components to challenge each one</td><td>"Your labor cost seems high — what's the basis for that rate?"</td></tr>
+            <tr><td>Flinch</td><td>React visibly/verbally to the first price to signal it's too high</td><td>"$130?! That's significantly above our budget range..."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I4 — Category Strategy -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I4</div>
+      <div class="module-title">Category Strategy Development — Full Framework</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>A <strong>Category Strategy</strong> is a comprehensive plan for how you will manage a specific spend category over the next 1–3 years. It's the #1 deliverable of a Category Manager.</p>
+
+      <h4>Category Strategy Components</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Section</th><th>Content</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Category Definition & Scope</td><td>What's in scope? Sub-categories? Geographies?</td><td>Category map</td></tr>
+            <tr><td>2</td><td>Spend Profile</td><td>How much? With whom? By BU? Historical trend?</td><td>Spend cube, Pareto chart</td></tr>
+            <tr><td>3</td><td>Supply Market Analysis</td><td>Supplier landscape, market dynamics, Porter's 5 Forces</td><td>Market brief</td></tr>
+            <tr><td>4</td><td>Stakeholder Needs</td><td>What do internal customers need? What are their pain points?</td><td>Stakeholder needs map</td></tr>
+            <tr><td>5</td><td>SWOT Analysis</td><td>Strengths, Weaknesses, Opportunities, Threats for this category</td><td>SWOT chart</td></tr>
+            <tr><td>6</td><td>Sourcing Options</td><td>Global vs local, single vs multi-source, make vs buy</td><td>Options analysis</td></tr>
+            <tr><td>7</td><td>Strategy Selection</td><td>Based on Kraljic, select optimal strategy per quadrant</td><td>Recommended strategy</td></tr>
+            <tr><td>8</td><td>Implementation Roadmap</td><td>What actions, who owns, timeline, savings target</td><td>Action plan with P&L impact</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Porter's 5 Forces for Supply Market Analysis</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Force</th><th>Sourcing Question</th><th>Impact on Buyer Power</th></tr></thead>
+          <tbody>
+            <tr><td>Supplier Power</td><td>How many suppliers exist? Are they concentrated?</td><td>Fewer suppliers = less buyer power</td></tr>
+            <tr><td>Buyer Power</td><td>How important are you to the supplier? What % of their revenue are you?</td><td>More spend = more leverage</td></tr>
+            <tr><td>Threat of Substitutes</td><td>Can you use an alternative product/technology?</td><td>Strong substitutes = more buyer power</td></tr>
+            <tr><td>New Entrants</td><td>Are new suppliers entering the market?</td><td>More entrants = competitive market, good for buyers</td></tr>
+            <tr><td>Industry Rivalry</td><td>How competitive is the supply market?</td><td>High rivalry = suppliers compete for your business</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I5 — Contracting -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I5</div>
+      <div class="module-title">Contract Management & Lifecycle</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>The Contract Lifecycle</h3>
+      <div class="flow" style="flex-direction:column; gap:8px; align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">1. Contract Request</div>
+          <div style="font-size:13px;color:#555">Business unit requests a contract for a new purchase</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">2. Negotiation</div>
+          <div style="font-size:13px;color:#555">Terms, price, SLAs, penalties, IP ownership negotiated</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">3. Drafting</div>
+          <div style="font-size:13px;color:#555">Legal team drafts; procurement reviews commercial terms</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">4. Review & Approval</div>
+          <div style="font-size:13px;color:#555">Legal, finance, and leadership approval per DoA matrix</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">5. Execution (Signing)</div>
+          <div style="font-size:13px;color:#555">Both parties sign — digital or wet signature</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">6. Performance Mgmt</div>
+          <div style="font-size:13px;color:#555">Monitor SLAs, KPIs, obligations — quarterly reviews</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <div class="flow-step i" style="min-width:160px">7. Renewal/Exit</div>
+          <div style="font-size:13px;color:#555">Decide: renew, renegotiate, or re-tender 6 months before expiry</div>
+        </div>
+      </div>
+
+      <h4>Critical Contract Clauses Every Sourcing Professional Must Know</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Clause</th><th>What it Means</th><th>Why it Matters</th></tr></thead>
+          <tbody>
+            <tr><td>Price Adjustment</td><td>How prices can change during contract term (e.g., linked to PPI index)</td><td>Protects both parties from commodity price volatility</td></tr>
+            <tr><td>Termination for Convenience</td><td>Either party can exit with notice period (e.g., 90 days)</td><td>Flexibility to exit poor performers</td></tr>
+            <tr><td>Liquidated Damages</td><td>Pre-agreed penalty for non-performance (e.g., $X per day of delay)</td><td>Creates strong supplier incentive to perform</td></tr>
+            <tr><td>IP Ownership</td><td>Who owns any IP created during the contract?</td><td>Critical for custom software, product design, R&D</td></tr>
+            <tr><td>Step-in Rights</td><td>Buyer can take over supplier operations if they fail critically</td><td>Business continuity protection</td></tr>
+            <tr><td>Most Favored Customer</td><td>Supplier guarantees you prices as good as any other customer</td><td>Ensures competitive pricing throughout term</td></tr>
+            <tr><td>Force Majeure</td><td>Neither party liable for events beyond their control (pandemics, wars)</td><td>Protects both parties during crises</td></tr>
+            <tr><td>Audit Rights</td><td>Buyer can audit supplier's books for cost transparency or compliance</td><td>Enables open-book pricing; ESG compliance verification</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I6 — KPI Framework -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I6</div>
+      <div class="module-title">KPI Framework — Measuring Procurement Performance</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>KPI Category</th><th>KPI Name</th><th>Formula / Definition</th><th>World-Class Benchmark</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>Cost</strong></td><td>Savings %</td><td>(Baseline price – Negotiated price) / Baseline × 100</td><td>5–8% of managed spend annually</td></tr>
+            <tr><td>Cost Avoidance</td><td>Price increase prevented through negotiation</td><td>Varies by category</td></tr>
+            <tr><td>Price Variance</td><td>Actual spend vs. budget</td><td>&lt;3% variance</td></tr>
+            <tr><td rowspan="3"><strong>Quality</strong></td><td>Supplier Quality Acceptance</td><td>Accepted lots / Total lots</td><td>>98.5%</td></tr>
+            <tr><td>Defect Rate (PPM)</td><td>Defective parts per million</td><td>&lt;1,000 PPM</td></tr>
+            <tr><td>Return Rate</td><td>Returns / Total received</td><td>&lt;0.5%</td></tr>
+            <tr><td rowspan="3"><strong>Delivery</strong></td><td>On-Time Delivery</td><td>On-time / Total deliveries</td><td>>95%</td></tr>
+            <tr><td>Lead Time Compliance</td><td>Actual vs. contracted lead time</td><td>>90%</td></tr>
+            <tr><td>Fill Rate</td><td>Orders filled complete / Total orders</td><td>>97%</td></tr>
+            <tr><td rowspan="2"><strong>Risk & Compliance</strong></td><td>Contract Coverage</td><td>Spend under contract / Total spend</td><td>>85%</td></tr>
+            <tr><td>Supplier Risk Incidents</td><td>Number of supply disruptions per year</td><td>&lt;2 critical incidents</td></tr>
+            <tr><td rowspan="2"><strong>ESG</strong></td><td>Supplier ESG Audit Completion</td><td>% of strategic suppliers audited</td><td>>90%</td></tr>
+            <tr><td>Scope 3 Emissions Reduction</td><td>Year-on-year reduction target</td><td>5% reduction/year</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I7 — Case Studies -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I7</div>
+      <div class="module-title">Intermediate Case Studies — Real World Scenarios</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Case Study 1: IT Hardware Sourcing at a Global Bank</h3>
+      <div class="callout" style="background:#f0f7ff;border-color:var(--intermediate)">
+        <span class="callout-label" style="color:var(--intermediate)">Situation</span>
+        A global bank with 50,000 employees was buying laptops, desktops, and monitors from 8 different vendors across 30 countries. Spend: $120M/year. No global contracts. Local IT teams bought independently. Prices varied by up to 40% for identical models across countries.
+      </div>
+      <h4>Actions Taken</h4>
+      <ol>
+        <li><strong>Global Spend Aggregation:</strong> Consolidated spend data across all regions — found 120,000 units/year</li>
+        <li><strong>Standardized Specifications:</strong> Reduced from 45 different laptop models to 6 globally standard models</li>
+        <li><strong>Global RFP:</strong> Issued to Dell, HP, Lenovo — required global pricing, service, and support consistency</li>
+        <li><strong>Negotiation:</strong> Used volume leverage (120K units) — achieved 28% price reduction + managed print services</li>
+        <li><strong>Regional Compliance:</strong> Local teams must order from global contract; exceptions require CPO approval</li>
+      </ol>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">Result</span>
+        Savings: $33.6M (28%) | Vendors: 8 → 2 | Model standardization: 45 → 6 | Price consistency across 30 countries
+      </div>
+
+      <hr>
+
+      <h3>Case Study 2: Professional Services Sourcing — Management Consulting</h3>
+      <div class="callout" style="background:#f0f7ff;border-color:var(--intermediate)">
+        <span class="callout-label" style="color:var(--intermediate)">Situation</span>
+        A Fortune 500 CPG company was spending $80M/year on management consulting across McKinsey, BCG, Bain, and 40+ boutique firms. No preferred vendor list, no rate cards, no governance. Business units hired consultants directly based on relationships.
+      </div>
+      <h4>Strategy Applied</h4>
+      <ul>
+        <li>Created a Preferred Supplier List (PSL) of 8 approved consulting firms by capability</li>
+        <li>Negotiated Master Service Agreements with daily rate cards (by grade: Partner/Director/Manager/Consultant/Analyst)</li>
+        <li>Implemented Competitive Pitching for projects >$500K</li>
+        <li>Created Consulting Spend Dashboard for CPO visibility</li>
+        <li>Built internal consulting capability to reduce external reliance by 20%</li>
+      </ul>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">Result</span>
+        Savings: $18M (22.5%) | Maverick spend reduced from 65% to 12% | Avg rate reduction: 18% through preferred supplier rates
+      </div>
+
+      <hr>
+
+      <h3>Case Study 3: Manufacturing — Steel Sourcing Strategy</h3>
+      <div class="callout" style="background:#f0f7ff;border-color:var(--intermediate)">
+        <span class="callout-label" style="color:var(--intermediate)">Situation</span>
+        An automotive parts manufacturer spending $200M/year on steel. All supply from a single mill. Steel prices volatile (±30%). Risk of single-source dependency is severe.
+      </div>
+      <h4>Strategy Applied</h4>
+      <ul>
+        <li><strong>Supply Diversification:</strong> Qualified 3 steel mills across 2 countries (split 60/25/15)</li>
+        <li><strong>Index-Based Pricing:</strong> Contracts linked to CRU Steel Index — removed fixed price risk for both parties</li>
+        <li><strong>Forward Contracts:</strong> For 40% of volume, fixed prices 6 months ahead for budget certainty</li>
+        <li><strong>Supplier Development:</strong> Invested $2M in preferred mill's capability upgrade for special grades</li>
+        <li><strong>Safety Stock Policy:</strong> 45-day inventory buffer for critical grades</li>
+      </ul>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">Result</span>
+        Savings: $14M (7%) through competitive supply + index pricing | Risk: Eliminated single-source dependency | Avoided $8M in price spikes through forward contracts
+      </div>
+    </div>
+  </div>
+
+  <!-- Module I8 — Stakeholder Management -->
+  <div class="module intermediate">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">I8</div>
+      <div class="module-title">Stakeholder Management — The Art of Internal Selling</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>The #1 challenge of procurement professionals isn't negotiating with suppliers — it's winning internal alignment. Even the best sourcing strategy fails without stakeholder buy-in.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Stakeholder</th><th>Their Priority</th><th>Their Fear</th><th>How to Win Them</th></tr></thead>
+          <tbody>
+            <tr><td>CFO / Finance</td><td>Cost savings, budget adherence</td><td>"Will this disrupt the budget?"</td><td>Show financial impact, savings tracking, ROI</td></tr>
+            <tr><td>Business Unit / End User</td><td>Quality, reliability, relationships</td><td>"Will the new vendor be as good?"</td><td>Pilot programs, maintain quality SLAs, involve them in selection</td></tr>
+            <tr><td>Legal</td><td>Risk mitigation, compliance</td><td>"Are we exposed to liability?"</td><td>Share contract framework early, align on key terms</td></tr>
+            <tr><td>IT / Technical Teams</td><td>Technical specifications, integration</td><td>"Will this system work with ours?"</td><td>Include in RFP evaluation, technical workshops with vendors</td></tr>
+            <tr><td>CEO / C-Suite</td><td>Strategy, competitive advantage</td><td>"Is this aligned with company vision?"</td><td>Connect sourcing to strategic priorities (ESG, innovation, resilience)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Stakeholder Engagement Approach (RACI for Sourcing)</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Activity</th><th>Procurement</th><th>Business Unit</th><th>Finance</th><th>Legal</th><th>IT</th></tr></thead>
+          <tbody>
+            <tr><td>Define Requirements</td><td>A</td><td>R</td><td>C</td><td>I</td><td>C</td></tr>
+            <tr><td>Develop Strategy</td><td>R/A</td><td>C</td><td>C</td><td>I</td><td>I</td></tr>
+            <tr><td>Issue RFP</td><td>R/A</td><td>C</td><td>I</td><td>C</td><td>C</td></tr>
+            <tr><td>Evaluate Suppliers</td><td>R/A</td><td>R</td><td>C</td><td>C</td><td>R</td></tr>
+            <tr><td>Negotiate Contract</td><td>R/A</td><td>C</td><td>C</td><td>R</td><td>I</td></tr>
+            <tr><td>Contract Approval</td><td>I</td><td>C</td><td>A</td><td>R</td><td>I</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>R = Responsible | A = Accountable | C = Consulted | I = Informed</em></p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ADVANCED
+════════════════════════════════════════════════════════════ -->
+<section id="advanced" class="section">
+<div class="content-wrap">
+  <div class="level-header advanced">
+    <span class="level-tag" style="color:var(--advanced)">📕 Level 3</span>
+    <h2>Advanced Level — Leadership & Transformation</h2>
+    <p>Target: 20–25+ years | Goal: Design enterprise sourcing strategies, lead transformation programs, build procurement operating models, and drive innovation.</p>
+  </div>
+
+  <!-- Module A1 — Operating Models -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A1</div>
+      <div class="module-title">Procurement Operating Model Design</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Three Core Operating Model Archetypes</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Model</th><th>Structure</th><th>Best For</th><th>Pros</th><th>Cons</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Centralized (Center-Led)</strong></td>
+              <td>All procurement from one central team; business units have no procurement staff</td>
+              <td>Commodity-heavy industries; companies seeking maximum leverage</td>
+              <td>Maximum buying power; standardization; clear governance</td>
+              <td>Slow, far from business needs; poor agility</td>
+            </tr>
+            <tr>
+              <td><strong>Decentralized</strong></td>
+              <td>Each business unit has its own procurement team; no central coordination</td>
+              <td>Diversified conglomerates; distinct business unit needs</td>
+              <td>Speed; business alignment; market responsiveness</td>
+              <td>Loses scale; maverick spend; inconsistent standards</td>
+            </tr>
+            <tr>
+              <td><strong>Hybrid (Center-Led + Empowered)</strong></td>
+              <td>Central CoE for strategy, governance, and global categories. BU procurement for local/tactical</td>
+              <td>Most Fortune 500 companies; best of both worlds</td>
+              <td>Balance of scale + agility; category excellence + business partnership</td>
+              <td>Complex governance; potential conflicts; requires strong leadership</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Procurement Maturity Model</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Level</th><th>Maturity Stage</th><th>Characteristics</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Reactive / Clerical</strong></td><td>Order taking; no strategy; high maverick spend</td><td>Get goods delivered</td></tr>
+            <tr><td>2</td><td><strong>Proactive / Cost-Focused</strong></td><td>Basic RFP processes; price negotiation; some contracts</td><td>Cost reduction</td></tr>
+            <tr><td>3</td><td><strong>Strategic</strong></td><td>Category management; TCO; SRM; KPIs</td><td>Value creation</td></tr>
+            <tr><td>4</td><td><strong>Collaborative</strong></td><td>Supplier innovation; joint development; risk co-management</td><td>Competitive advantage</td></tr>
+            <tr><td>5</td><td><strong>Transformational / Autonomous</strong></td><td>AI-driven; predictive; autonomous sourcing; ESG leadership</td><td>Enterprise resilience & innovation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-label">Leadership Insight</span>
+        Most companies operate at Level 2–3. The opportunity to move from Level 3 to 4–5 is where CPOs create extraordinary value. The journey from "cost cutter" to "value architect" is the defining career move.
+      </div>
+    </div>
+  </div>
+
+  <!-- Module A2 — Sourcing Transformation Roadmap -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A2</div>
+      <div class="module-title">Enterprise Sourcing Transformation Roadmap</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>The 3-Year Transformation Framework</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Phase</th><th>Timeline</th><th>Focus</th><th>Key Initiatives</th><th>Value Driver</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Phase 1: Stabilize & Diagnose</strong></td>
+              <td>0–6 months</td>
+              <td>Understand current state; quick wins</td>
+              <td>Spend analysis, supplier audit, contract inventory, stakeholder interviews, P&L baseline</td>
+              <td>Quick savings 3–5%; governance foundation</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 2: Optimize & Scale</strong></td>
+              <td>6–18 months</td>
+              <td>Category strategies; technology deployment; process standardization</td>
+              <td>Top 10 category strategies, S2P platform implementation, SRM program, negotiation capability building</td>
+              <td>Cumulative savings 8–12%; operating model redesign</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 3: Transform & Innovate</strong></td>
+              <td>18–36 months</td>
+              <td>AI deployment; supplier innovation; ESG leadership; autonomous procurement</td>
+              <td>AI analytics, supplier innovation portal, ESG scoring, predictive risk management</td>
+              <td>Enterprise value creation; resilience; innovation pipeline</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Change Management in Procurement Transformation</h4>
+      <p>70% of transformation programs fail — not because of bad strategy, but poor change management. As CPO, you must:</p>
+      <ul>
+        <li><strong>Secure C-suite mandate:</strong> CEO and CFO must visibly champion the transformation</li>
+        <li><strong>Build a burning platform:</strong> Show data on how much value is being left on the table</li>
+        <li><strong>Create quick wins:</strong> Deliver savings in months 1–6 to build credibility</li>
+        <li><strong>Invest in capability:</strong> Training, new talent, technology</li>
+        <li><strong>Celebrate milestones:</strong> Make procurement successes visible across the organization</li>
+        <li><strong>Measure and communicate:</strong> Monthly dashboard to CFO/CEO showing savings, compliance, risk</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Module A3 — Global Sourcing Strategy -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A3</div>
+      <div class="module-title">Global vs Local Sourcing Strategy Design</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Strategy</th><th>Description</th><th>Cost Impact</th><th>Risk</th><th>When to Use</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Offshoring</strong></td><td>Manufacturing/sourcing in low-cost country (China, Vietnam, India, Mexico)</td><td>Low unit cost (-20 to -40%)</td><td>High (geopolitical, quality, lead time)</td><td>High-volume, labor-intensive, stable demand</td></tr>
+            <tr><td><strong>Nearshoring</strong></td><td>Sourcing from nearby country (US → Mexico, EU → Eastern Europe)</td><td>Moderate (-10 to -20%)</td><td>Medium (regulatory alignment, cultural proximity)</td><td>When lead time and responsiveness matter</td></tr>
+            <tr><td><strong>Reshoring / Onshoring</strong></td><td>Bringing manufacturing back home</td><td>High unit cost (+15 to +30%)</td><td>Low (geopolitical); High (labor cost)</td><td>Strategic, high-tech, national security categories</td></tr>
+            <tr><td><strong>Friend-shoring</strong></td><td>Sourcing from politically aligned countries</td><td>Moderate</td><td>Low-medium</td><td>Geopolitically sensitive categories post-COVID</td></tr>
+            <tr><td><strong>Multi-sourcing</strong></td><td>Split supply across multiple countries/suppliers</td><td>Moderate (loses some volume discount)</td><td>Very Low</td><td>Critical categories; high disruption risk</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The China+1 Strategy</h3>
+      <p>Post-COVID and US-China trade tensions, most Fortune 500 companies are implementing a <strong>China+1</strong> strategy — maintaining China supply but qualifying a second country as backup/alternative.</p>
+      <div class="callout warning">
+        <span class="callout-label">⚠️ CPO Decision Framework</span>
+        Before selecting a country for sourcing, assess: (1) Labor cost & productivity, (2) Infrastructure quality, (3) Regulatory environment, (4) IP protection laws, (5) Logistics costs & lead times, (6) Political stability, (7) Trade agreements, (8) ESG standards
+      </div>
+    </div>
+  </div>
+
+  <!-- Module A4 — Supplier Innovation -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A4</div>
+      <div class="module-title">Supplier Innovation & Co-Creation</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <p>The highest-value procurement organizations don't just buy from suppliers — they <strong>innovate with them</strong>. This is the shift from transactional buyer to strategic partner.</p>
+
+      <h3>Supplier Innovation Tiers</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tier</th><th>Relationship Type</th><th>Example</th><th>Value Created</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tier 1: Efficiency</strong></td><td>Supplier improves their process to reduce cost</td><td>Supplier redesigns packaging to reduce material by 15%</td><td>Cost reduction</td></tr>
+            <tr><td><strong>Tier 2: Product/Process Innovation</strong></td><td>Joint development of new product or process</td><td>Buyer + supplier co-develop a new material that reduces product weight by 20%</td><td>Product differentiation</td></tr>
+            <tr><td><strong>Tier 3: Disruptive Innovation</strong></td><td>Supplier brings entirely new technology; buyer gets first-mover advantage</td><td>Apple works with display supplier to develop OLED before any competitor</td><td>Competitive advantage; new revenue</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Building a Supplier Innovation Program</h4>
+      <ol>
+        <li><strong>Identify top 20 strategic suppliers</strong> with innovation capability</li>
+        <li><strong>Sign Innovation Partnership Agreements</strong> — define IP ownership, investment split, exclusivity periods</li>
+        <li><strong>Host annual Supplier Innovation Day</strong> — suppliers present innovation ideas; best ideas funded</li>
+        <li><strong>Create Innovation Scorecard</strong> — track ideas submitted, implemented, revenue generated</li>
+        <li><strong>Incentivize innovation:</strong> Award preferred supplier status + increased volume for innovating suppliers</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Module A5 — Advanced Risk -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A5</div>
+      <div class="module-title">Enterprise Risk Management in Sourcing</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Risk Assessment Framework (Heat Map)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Risk Type</th><th>Probability</th><th>Impact</th><th>Risk Level</th><th>Mitigation Strategy</th></tr></thead>
+          <tbody>
+            <tr><td>Single-source critical supplier failure</td><td>Low (5%)</td><td>Catastrophic</td><td>🔴 HIGH</td><td>Dual qualify; safety stock; step-in rights</td></tr>
+            <tr><td>Geopolitical disruption (tariffs/trade war)</td><td>Medium (25%)</td><td>Severe</td><td>🔴 HIGH</td><td>Geographic diversification; hedging; nearshoring</td></tr>
+            <tr><td>Supplier financial distress</td><td>Medium (15%)</td><td>High</td><td>🟠 MEDIUM-HIGH</td><td>Financial monitoring; dual sourcing; advance buys</td></tr>
+            <tr><td>Cyber attack on supplier</td><td>Medium (20%)</td><td>High</td><td>🟠 MEDIUM-HIGH</td><td>Cybersecurity assessment; incident response plan</td></tr>
+            <tr><td>ESG / Reputational (forced labor)</td><td>Low (8%)</td><td>Severe (reputational)</td><td>🟠 MEDIUM-HIGH</td><td>Tier 2 audits; supplier code of conduct enforcement</td></tr>
+            <tr><td>Commodity price spike</td><td>High (40%)</td><td>Moderate</td><td>🟡 MEDIUM</td><td>Index-linked contracts; forward buying; hedging</td></tr>
+            <tr><td>Logistics disruption</td><td>High (35%)</td><td>Moderate</td><td>🟡 MEDIUM</td><td>Multi-modal; safety stock; nearshoring</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Supply Chain Resilience Framework (Post-COVID)</h3>
+      <p>COVID-19 was a wake-up call. The companies that survived with minimal disruption had these characteristics:</p>
+      <ul>
+        <li><strong>Multi-tier visibility:</strong> Knew not just Tier 1 suppliers but Tier 2 and 3</li>
+        <li><strong>Geographic diversification:</strong> Supply from multiple countries, not single-country dependency</li>
+        <li><strong>Inventory buffer strategy:</strong> "Just-in-time" gave way to "just-in-case" for critical items</li>
+        <li><strong>Digital supply chain:</strong> Real-time data from suppliers on capacity, inventory, risk</li>
+        <li><strong>Supplier financial health monitoring:</strong> Early warning systems for supplier distress</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Module A6 — Advanced Case Studies -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A6</div>
+      <div class="module-title">Advanced Case Studies — Enterprise Scale</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Case Study 1: Multi-Country Sourcing Strategy — Pharma</h3>
+      <div class="callout" style="background:#f3e8ff;border-color:var(--advanced)">
+        <span class="callout-label" style="color:var(--advanced)">Advanced Case</span>
+        A global pharmaceutical company ($25B revenue) sources Active Pharmaceutical Ingredients (APIs) 85% from a single country. Regulatory and geopolitical exposure is existential.
+      </div>
+      <h4>Strategy Designed</h4>
+      <ol>
+        <li><strong>API Vulnerability Assessment:</strong> Mapped 300 APIs to source countries — found 85% China/India concentration</li>
+        <li><strong>Risk Tiering:</strong> Classified APIs into: Life-Critical, Important, Standard</li>
+        <li><strong>Dual Sourcing Mandate:</strong> All Life-Critical APIs must have qualified supplier in 2+ countries within 24 months</li>
+        <li><strong>Supplier Development in Europe/US:</strong> $150M investment to develop Western API suppliers</li>
+        <li><strong>Strategic Inventory:</strong> 6-month safety stock for life-critical APIs</li>
+        <li><strong>Regulatory Strategy:</strong> Pre-file alternate suppliers with FDA/EMA to reduce regulatory delay</li>
+      </ol>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">Outcome (3 years)</span>
+        China/India concentration reduced from 85% to 60% | Life-critical APIs: 100% dual-sourced | Supply disruption risk score reduced 45% | $300M revenue protected from supply disruption risk
+      </div>
+
+      <hr>
+
+      <h3>Case Study 2: Digital Procurement Transformation — $8B Manufacturer</h3>
+      <div class="callout" style="background:#f3e8ff;border-color:var(--advanced)">
+        <span class="callout-label" style="color:var(--advanced)">Advanced Case</span>
+        A manufacturing conglomerate with 45 plants, 8,000 suppliers, and $3.5B in annual procurement spend. Operating on legacy ERP with no S2P platform. 40% maverick spend. 60% spend not under contract.
+      </div>
+      <h4>3-Year Transformation</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Year</th><th>Initiative</th><th>Investment</th><th>Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Year 1</td><td>Deploy SAP Ariba (Sourcing + Contracts + SLP)</td><td>$12M</td><td>Spend visibility, contract compliance, supplier onboarding</td></tr>
+            <tr><td>Year 1–2</td><td>Category Strategy Deployment (Top 20 categories)</td><td>$3M (team + consulting)</td><td>$180M in negotiated savings</td></tr>
+            <tr><td>Year 2</td><td>Supplier Rationalization (8,000 → 2,500 suppliers)</td><td>$2M</td><td>$40M savings + reduced admin cost</td></tr>
+            <tr><td>Year 2–3</td><td>AI-Powered Spend Analytics (Spend HQ / Sievo)</td><td>$2M</td><td>Real-time category intelligence; 95% spend accuracy</td></tr>
+            <tr><td>Year 3</td><td>Autonomous P2P (Catalog + touchless invoicing)</td><td>$4M</td><td>70% touchless orders; $15M AP processing cost reduction</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="background:#d8f3dc;border-color:var(--beginner)">
+        <span class="callout-label" style="color:var(--beginner)">Total Impact</span>
+        $235M in savings over 3 years | ROI: 10:1 | Maverick spend: 40% → 8% | Contract coverage: 40% → 88%
+      </div>
+
+      <hr>
+
+      <h3>Case Study 3: Pandemic Supply Chain Crisis Response</h3>
+      <div class="callout" style="background:#f3e8ff;border-color:var(--advanced)">
+        <span class="callout-label" style="color:var(--advanced)">Crisis Case</span>
+        March 2020: A global electronics manufacturer sees its primary suppliers in Wuhan, China go offline. $500M in production at risk. Leadership looks to CPO for an answer.
+      </div>
+      <h4>CPO's 72-Hour Response Playbook</h4>
+      <ol>
+        <li><strong>Hour 1–4:</strong> Activate Crisis Team. Map affected suppliers by criticality. Identify top 20 at-risk components.</li>
+        <li><strong>Hour 4–12:</strong> Contact all affected suppliers for status update, capacity availability, and estimated restart dates.</li>
+        <li><strong>Hour 12–24:</strong> Inventory audit — what's in transit, in warehouse, at plants? Calculate weeks of coverage per component.</li>
+        <li><strong>Hour 24–48:</strong> Emergency RFQ to all qualified alternate suppliers globally. Premium pricing accepted if needed.</li>
+        <li><strong>Hour 48–72:</strong> Present to CEO: production impact analysis, bridge strategy, cost of alternatives, 30/60/90-day plan.</li>
+        <li><strong>Week 2+:</strong> Redesign supply chain. Implement geographic diversification. Build strategic stock. Deploy supply risk monitoring tools.</li>
+      </ol>
+      <div class="callout warning">
+        <span class="callout-label">CPO Lesson</span>
+        The CPOs who came out of COVID strongest were those who had: real-time supply chain visibility, pre-qualified alternate suppliers, and crisis playbooks. The ones who struggled had none of these. Resilience is built in peacetime.
+      </div>
+    </div>
+  </div>
+
+  <!-- Module A7 — ESG Advanced -->
+  <div class="module advanced">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num">A7</div>
+      <div class="module-title">ESG & Sustainable Sourcing — Enterprise Strategy</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Why ESG is No Longer Optional</h3>
+      <ul>
+        <li><strong>EU CSRD (Corporate Sustainability Reporting Directive):</strong> Mandatory Scope 3 emissions reporting from 2025</li>
+        <li><strong>US SEC Climate Disclosure Rules:</strong> Public companies must disclose supply chain climate risks</li>
+        <li><strong>Germany Supply Chain Act:</strong> Companies liable for human rights violations in their supply chain</li>
+        <li><strong>Investor pressure:</strong> ESG ratings (MSCI, Sustainalytics) directly affect stock price</li>
+        <li><strong>Customer demand:</strong> B2B and B2C customers demanding sustainable supply chains</li>
+      </ul>
+
+      <h3>The 4-Pillar Enterprise ESG Sourcing Strategy</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Pillar</th><th>Key Actions</th><th>KPIs</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Supplier ESG Assessment</strong></td><td>Onboard ESG assessment tool (EcoVadis, Sedex); score all Tier 1 suppliers; require minimum score for preferred status</td><td>% suppliers scored; avg EcoVadis score; improvement year-on-year</td></tr>
+            <tr><td><strong>2. Emissions Reduction</strong></td><td>Map Scope 3 emissions; set supplier emission reduction targets; include emission clauses in contracts; reward low-carbon suppliers</td><td>Scope 3 emissions (tCO2e); year-on-year reduction %</td></tr>
+            <tr><td><strong>3. Human Rights & Labor</strong></td><td>Tier 1 and 2 audits; supplier code of conduct; worker voice programs; zero tolerance for forced/child labor</td><td>% suppliers audited; critical findings; remediation rate</td></tr>
+            <tr><td><strong>4. Supplier Diversity</strong></td><td>Track spend with women-owned, minority-owned, SME suppliers; set diversity spend targets</td><td>% diverse spend; number of diverse suppliers; growth year-on-year</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     AI & GENAI
+════════════════════════════════════════════════════════════ -->
+<section id="ai" class="section">
+<div class="content-wrap">
+  <div class="level-header ai-section">
+    <span class="level-tag" style="color:var(--ai)">🤖 AI & GenAI</span>
+    <h2>AI & Generative AI in Strategic Sourcing</h2>
+    <p>The most critical capability shift in procurement history. This section covers how AI is transforming every step of the sourcing process — and what you need to know to lead in this new era.</p>
+  </div>
+
+  <!-- Module AI1 -->
+  <div class="module" style="border-top:4px solid var(--ai);">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num ai-s">AI1</div>
+      <div class="module-title">Role of AI in Strategic Sourcing — Complete Map</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Sourcing Step</th><th>Traditional Approach</th><th>AI-Enhanced Approach</th><th>Value Gained</th></tr></thead>
+          <tbody>
+            <tr><td>Spend Analysis</td><td>Manual Excel; 4–6 weeks to clean & classify data; 70% accuracy</td><td>AI auto-classifies 95%+ accuracy in hours; anomaly detection</td><td>10x faster; 30% more savings opportunities identified</td></tr>
+            <tr><td>Market Intelligence</td><td>Manual research; outdated data; weeks to compile</td><td>AI scrapes supplier databases, pricing, news in real-time</td><td>Real-time market intelligence; better negotiation preparation</td></tr>
+            <tr><td>Supplier Risk</td><td>Annual audit; reactive to failures</td><td>Continuous AI monitoring of financial health, news, ESG signals</td><td>Early warning — act before disruption hits</td></tr>
+            <tr><td>RFP/RFQ Creation</td><td>Weeks of manual drafting; inconsistent quality</td><td>GenAI drafts RFP in minutes from category requirements</td><td>80% time reduction; higher quality, consistent documents</td></tr>
+            <tr><td>Supplier Evaluation</td><td>Manual scoring; subjective; time-consuming</td><td>AI normalizes responses; auto-scoring; comparison summaries</td><td>Objective; 5x faster evaluation; fewer biases</td></tr>
+            <tr><td>Negotiation Preparation</td><td>Manual analysis; experience-based</td><td>AI provides should-cost; predicts ZOPA; suggests tactics</td><td>More informed; data-backed negotiation</td></tr>
+            <tr><td>Contract Management</td><td>Manual contract review; missed obligations; renewal surprises</td><td>AI extracts clauses; flags risks; alerts on renewals; identifies gaps</td><td>Risk reduction; compliance improvement; faster review</td></tr>
+            <tr><td>Supplier Performance</td><td>Quarterly manual reports; lagging indicators</td><td>Real-time dashboards; predictive alerts; automated scorecards</td><td>Proactive management; fewer surprises</td></tr>
+            <tr><td>Price Forecasting</td><td>Historical averages; gut feeling</td><td>ML models predict commodity prices 3–12 months ahead</td><td>Better timing of contracts; hedging decisions</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module AI2 — GenAI Use Cases -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num ai-s">AI2</div>
+      <div class="module-title">Generative AI Use Cases in Procurement</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <h3>Use Case 1: Auto-Generation of RFP/RFQ Documents</h3>
+      <p>GenAI can generate a complete RFP in minutes when given category requirements. What used to take 2–3 weeks of procurement team effort now takes hours.</p>
+      <div class="callout tip">
+        <span class="callout-label">Example Prompt to GenAI</span>
+        "Create an RFP for fleet management services for a company with 5,000 vehicles across 15 countries. Include scope, eligibility criteria, evaluation methodology, pricing schedule, and SLA requirements."
+      </div>
+
+      <h3>Use Case 2: Contract Drafting & Clause Recommendation</h3>
+      <p>GenAI models trained on millions of contracts can:</p>
+      <ul>
+        <li>Draft contract sections from templates</li>
+        <li>Flag unusual or missing clauses vs. market standard</li>
+        <li>Suggest clause alternatives when supplier pushes back</li>
+        <li>Auto-redline supplier paper against your preferred positions</li>
+        <li>Summarize a 200-page contract into a 2-page executive brief</li>
+      </ul>
+
+      <h3>Use Case 3: Supplier Comparison Summaries</h3>
+      <p>After receiving 10 RFP responses, GenAI can:</p>
+      <ul>
+        <li>Extract key data points from each response</li>
+        <li>Normalize pricing to apple-to-apple comparison</li>
+        <li>Generate a 1-page comparison matrix for stakeholders</li>
+        <li>Identify strengths/weaknesses of each supplier</li>
+        <li>Flag non-compliance with RFP requirements</li>
+      </ul>
+
+      <h3>Use Case 4: Negotiation Intelligence</h3>
+      <ul>
+        <li>AI analyzes supplier's public financials, recent contracts, and market position</li>
+        <li>Predicts supplier's walk-away price based on cost modeling</li>
+        <li>Suggests optimal negotiation sequence and tactics</li>
+        <li>Real-time coaching during negotiation (e.g., AI meeting assistant)</li>
+        <li>Post-negotiation analysis: what worked, what didn't</li>
+      </ul>
+
+      <h3>Use Case 5: Spend Classification & Analytics Automation</h3>
+      <ul>
+        <li>ML models classify spend with 95%+ accuracy at line-item level</li>
+        <li>NLP reads invoice descriptions to correctly classify non-PO spend</li>
+        <li>Anomaly detection flags unusual spend patterns for investigation</li>
+        <li>Predictive analytics identifies categories with highest savings potential</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Module AI3 — Tools -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num ai-s">AI3</div>
+      <div class="module-title">Procurement Technology Stack — Tools & Platforms</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Platform</th><th>Key Capability</th><th>Best For</th><th>Approx. Cost</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="4"><strong>S2P (Source-to-Pay)</strong></td><td><strong>SAP Ariba</strong></td><td>End-to-end S2P; largest supplier network (5M+); strong analytics</td><td>Large enterprises; SAP-heavy environments</td><td>$2–5M+/yr</td></tr>
+            <tr><td><strong>Coupa</strong></td><td>User-friendly; strong P2P; real-time benchmarking with community intelligence</td><td>Mid to large enterprises; best UX</td><td>$500K–2M/yr</td></tr>
+            <tr><td><strong>GEP SMART</strong></td><td>AI-native platform; strong analytics; unified source-to-pay</td><td>Enterprises wanting AI-first platform</td><td>$1–3M/yr</td></tr>
+            <tr><td><strong>Ivalua</strong></td><td>Highly configurable; strong supplier management; complex categories</td><td>Complex, regulated industries</td><td>$1–4M/yr</td></tr>
+            <tr><td rowspan="2"><strong>Spend Analytics</strong></td><td><strong>Sievo</strong></td><td>Savings tracking; spend intelligence; benchmark data</td><td>Analytics-heavy procurement teams</td><td>$200–500K/yr</td></tr>
+            <tr><td><strong>Spend HQ</strong></td><td>Fast spend classification; clean data; supplier intelligence</td><td>Companies needing rapid spend clarity</td><td>$100–300K/yr</td></tr>
+            <tr><td rowspan="2"><strong>Supplier Risk</strong></td><td><strong>Riskmethods / Sphera</strong></td><td>Real-time supplier risk monitoring; AI news scanning; disruption alerts</td><td>Companies with complex supply chains</td><td>$200–600K/yr</td></tr>
+            <tr><td><strong>Dun & Bradstreet</strong></td><td>Financial health scores; global supplier database</td><td>Financial risk assessment</td><td>$50–200K/yr</td></tr>
+            <tr><td><strong>ESG Ratings</strong></td><td><strong>EcoVadis</strong></td><td>Supplier ESG scorecards; 100K+ suppliers rated globally</td><td>Sustainable sourcing programs</td><td>$100–400K/yr</td></tr>
+            <tr><td rowspan="2"><strong>Contract AI</strong></td><td><strong>Ironclad / Icertis</strong></td><td>AI contract review; clause extraction; obligation tracking</td><td>High-volume contracting; legal-heavy</td><td>$150–500K/yr</td></tr>
+            <tr><td><strong>Luminance</strong></td><td>Legal AI for contract due diligence; M&A; compliance</td><td>Legal teams; complex contracts</td><td>$200–600K/yr</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Future Trends — The Next 5 Years</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Trend</th><th>What it Means</th><th>Readiness Required</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Autonomous Procurement</strong></td><td>AI handles routine sourcing end-to-end without human intervention — from need detection to PO issuance</td><td>Clean data; defined rules; strong governance framework</td></tr>
+            <tr><td><strong>Predictive Sourcing</strong></td><td>AI predicts when to buy, from whom, and at what price — before the business even raises a requisition</td><td>Historical data; integration with demand planning</td></tr>
+            <tr><td><strong>Digital Twins</strong></td><td>Virtual replica of your supply chain — simulate disruptions, test sourcing strategies, optimize before acting</td><td>Supply chain mapping; IoT data; modeling capability</td></tr>
+            <tr><td><strong>Blockchain in Supply Chain</strong></td><td>Immutable tracking of product provenance, ESG compliance, and payments across supply chain</td><td>Supplier technology capability; industry standards</td></tr>
+            <tr><td><strong>Embedded Procurement AI</strong></td><td>AI procurement agent embedded in ERP/ERP that guides every buying decision in real time</td><td>Clean master data; AI literacy across business</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     INTERVIEW PREP
+════════════════════════════════════════════════════════════ -->
+<section id="interview" class="section">
+<div class="content-wrap">
+  <div class="level-header" style="background:#fdf8ee;border-color:var(--gold);border-left:6px solid var(--gold)">
+    <span class="level-tag" style="color:var(--gold)">🎯 Interview Prep</span>
+    <h2>Complete Interview Preparation Guide</h2>
+    <p>50+ questions covering all levels — from entry-level buyer interviews to CPO-level executive assessments. Click each question to reveal model answers.</p>
+  </div>
+
+  <h3>📘 Beginner / Junior Buyer Questions</h3>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q1: What is the difference between procurement and strategic sourcing? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      Procurement is the day-to-day operational activity of buying goods and services — raising purchase orders, managing invoices, processing receipts. Strategic sourcing is the higher-level, analytical process of determining who to buy from, how to structure the relationship, and how to get maximum value over time.<br><br>
+      Think of it this way: if a company needs 10,000 laptops, procurement raises the PO and tracks the delivery. Strategic sourcing is the process that decided which supplier to use, negotiated the price, and structured the 3-year contract that makes all those individual POs possible.<br><br>
+      The two are complementary — strategic sourcing defines the strategy; procurement executes it.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q2: What is Total Cost of Ownership and why is it important? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      TCO is the complete cost of acquiring, using, and disposing of a product or service over its useful life — not just the purchase price. It includes acquisition cost (price, shipping, duties), operational cost (maintenance, energy, training), and end-of-life cost (disposal, replacement).<br><br>
+      It's critical because focusing only on purchase price leads to poor decisions. A $500 machine that breaks every 6 months and requires $200 in repairs costs far more over 5 years than a $700 machine that runs reliably with no maintenance.<br><br>
+      In procurement, we always say: <em>"Don't buy on price. Buy on value."</em> TCO is the framework that operationalizes that principle.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q3: Explain the 7-step strategic sourcing process. <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      The 7-step process is: (1) <strong>Spend Analysis</strong> — understand current spending, suppliers, and patterns. (2) <strong>Supply Market Analysis</strong> — understand the supplier landscape, competitive dynamics, pricing trends. (3) <strong>Develop Sourcing Strategy</strong> — decide on approach: global/local, single/multi-source, competitive/collaborative. (4) <strong>RFI/RFQ/RFP Process</strong> — engage the market, issue documents, receive responses. (5) <strong>Evaluate & Negotiate</strong> — score suppliers against criteria, negotiate terms. (6) <strong>Contract Award</strong> — formalize the agreement with SLAs and performance terms. (7) <strong>Manage & Continuously Improve</strong> — track performance, manage the relationship, drive continuous improvement.<br><br>
+      This is not a one-time exercise — it's a cycle that repeats every 1–3 years per category.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q4: What is an RFP and how is it different from an RFQ? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      An <strong>RFQ (Request for Quotation)</strong> is used when your requirements are fully specified and you simply need suppliers to give you their price. It's used for commodities or standard goods where the specs don't change — like asking 5 suppliers to price a specific bolt, raw material, or standard software license.<br><br>
+      An <strong>RFP (Request for Proposal)</strong> is more comprehensive. It's used when you want suppliers to propose HOW they would meet your needs, not just quote a price. You use it for complex services, IT systems, or consulting — where the solution isn't predefined. An RFP asks for: approach and methodology, team qualifications, past experience, pricing, and risk management.<br><br>
+      Rule of thumb: Known spec = RFQ. Complex problem = RFP.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q5: Tell me about a time you identified a cost-saving opportunity. <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer (STAR Format):</strong><br>
+      <strong>Situation:</strong> I noticed that our marketing department was using 12 different print vendors across the country with no contracts.<br>
+      <strong>Task:</strong> My goal was to consolidate and reduce costs without impacting quality or service.<br>
+      <strong>Action:</strong> I conducted a spend analysis, found $2.1M in print spend with inconsistent pricing. I issued an RFP to 8 qualified national print vendors. Built a should-cost model to understand benchmark pricing. Negotiated with top 3 vendors using competitive tension and volume commitment.<br>
+      <strong>Result:</strong> Selected 2 preferred vendors. Achieved 22% savings ($462K). Improved turnaround times by 15%. Created catalog with pre-agreed pricing for easy ordering.
+    </div>
+  </div>
+
+  <hr>
+  <h3>📗 Mid-Level / Category Manager Questions</h3>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q6: How do you build a category strategy? Walk me through your approach. <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      I follow an 8-step approach:<br>
+      1. <strong>Define scope</strong> — What's in/out of the category? Which geographies, sub-categories?<br>
+      2. <strong>Spend profile</strong> — Pull spend cube: how much, with whom, by BU, trend analysis<br>
+      3. <strong>Stakeholder needs</strong> — Interview internal customers: what do they need beyond price? (quality, lead time, innovation, sustainability)<br>
+      4. <strong>Supply market analysis</strong> — Porter's 5 Forces; who are the top suppliers; market concentration; pricing trends<br>
+      5. <strong>SWOT analysis</strong> — Internal strengths/weaknesses; external opportunities/threats<br>
+      6. <strong>Strategize</strong> — Use Kraljic Matrix to position the category; select strategic approach (competitive bidding vs. partnership)<br>
+      7. <strong>Develop initiatives</strong> — Specific actions with owner, timeline, savings estimate<br>
+      8. <strong>Gain alignment</strong> — Present to stakeholders and leadership; get buy-in and resources<br><br>
+      The whole process takes 6–12 weeks for a major category. I always involve business stakeholders from Day 1 to ensure buy-in.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q7: Explain the Kraljic Matrix and how you use it. <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      The Kraljic Matrix is a 2×2 framework developed by Peter Kraljic in 1983. It categorizes spend categories on two axes: Supply Risk (x-axis) and Spend Value (y-axis). This creates four quadrants:<br><br>
+      <strong>Routine (low risk, low spend)</strong> → Automate, simplify. Don't waste procurement time here. Example: office supplies.<br>
+      <strong>Leverage (low risk, high spend)</strong> → Competitive bidding, consolidation, hard negotiation. Example: packaging, transportation.<br>
+      <strong>Bottleneck (high risk, low spend)</strong> → Secure supply, build buffer stock, qualify alternatives. Example: specialty chemicals.<br>
+      <strong>Strategic (high risk, high spend)</strong> → Deep partnerships, joint innovation, executive sponsorship. Example: core raw materials, critical IT.<br><br>
+      I use this to prioritize where procurement effort should go and to design the right sourcing strategy for each category.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q8: How do you build a should-cost model and use it in negotiation? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      A should-cost model is my calculation of what a product/service SHOULD cost to produce — independent of what the supplier quotes. I build it by:<br>
+      1. Breaking down the product into components (Bill of Materials)<br>
+      2. Researching market prices for each raw material/component<br>
+      3. Estimating labor hours × labor rate in the supplier's country<br>
+      4. Adding overhead (factory cost) — typically 20–35% of direct cost<br>
+      5. Adding reasonable profit margin — typically 8–15%<br><br>
+      In negotiation, I use it by saying: "Our cost analysis suggests this part should cost around $X. Can you walk me through your cost structure?" This accomplishes three things: (1) Shows the supplier I've done my homework, (2) Opens a data-driven discussion rather than positional bargaining, (3) Identifies specific cost elements I can challenge. This approach typically yields 5–15% additional savings vs. traditional negotiation.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q9: How do you manage difficult stakeholders who want to use their preferred supplier? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      This is a common challenge and requires both data and relationship skills. My approach:<br><br>
+      1. <strong>Listen first:</strong> Understand WHY they prefer this supplier — is it quality, relationship, technical capability? Don't dismiss it.<br>
+      2. <strong>Data-driven conversation:</strong> Show them the spend analysis, market comparison, what other suppliers offer. Make it about facts, not opinions.<br>
+      3. <strong>Involve them:</strong> Include the stakeholder in the RFP and evaluation process. When they help select the winner, they own the outcome.<br>
+      4. <strong>Pilot approach:</strong> If they're resistant, propose a competitive bid where the preferred supplier participates. If they win on merit, great. If not, the data speaks for itself.<br>
+      5. <strong>Escalate carefully:</strong> If there's no rational business reason for the preference and it's costing the company money, I involve leadership — but as a last resort after exhausting collaborative approaches.<br><br>
+      The key is to never position procurement as the "police." Frame yourself as a business partner helping them get the best deal for their budget.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q10: How do you measure procurement success? What KPIs do you track? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      I track KPIs across four dimensions:<br><br>
+      <strong>Financial:</strong> Savings % (target 5–8% of managed spend), cost avoidance, price variance vs. budget<br>
+      <strong>Quality:</strong> Supplier quality acceptance rate (target >98%), defect PPM, return rate<br>
+      <strong>Delivery:</strong> On-time delivery (target >95%), lead time compliance, fill rate<br>
+      <strong>Strategic:</strong> Contract coverage (spend under contract), supplier risk incidents, ESG audit completion, innovation pipeline value<br><br>
+      I present these in a monthly CPO dashboard with traffic light (RAG) status and trend lines. The most important thing is connecting procurement KPIs to business outcomes — not just savings for procurement's sake, but contribution to operating profit, working capital, and strategic goals.
+    </div>
+  </div>
+
+  <hr>
+  <h3>📕 Senior / CPO Level Questions</h3>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q11: You are joining as CPO of a company with immature procurement. What's your 100-day plan? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      My 100-day plan has three phases:<br><br>
+      <strong>Days 1–30: Listen & Diagnose</strong><br>
+      Meet key stakeholders (CFO, BU heads, top suppliers). Understand spend, contracts, team capability, and biggest pain points. Pull spend analysis. Audit existing contracts and supplier performance. Identify quick wins and burning issues.<br><br>
+      <strong>Days 30–60: Build the Case</strong><br>
+      Present diagnostic findings to CFO and CEO: current state, value leakage, benchmark gaps, opportunity quantified. Propose 3-year transformation roadmap with phased savings. Secure executive mandate and budget for change.<br><br>
+      <strong>Days 60–100: Execute Quick Wins</strong><br>
+      Start 3–5 high-value sourcing events on largest spend categories. Negotiate quick savings to demonstrate value. Begin team capability assessment — who to develop, who to recruit. Start technology assessment if needed. Establish governance: category councils, approval matrices, spend visibility.<br><br>
+      The 100-day plan is about listening first, building credibility with data, then moving fast on quick wins to create momentum for the longer transformation.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q12: How would you design a global sourcing strategy for a company sourcing 80% from China? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      This is a supply chain resilience and strategic sourcing question. My approach:<br><br>
+      <strong>Step 1: Risk Assessment</strong> — Map ALL categories by criticality and China concentration. Identify top 20 highest-risk categories.<br><br>
+      <strong>Step 2: Segment the portfolio</strong> — Not all China-sourced items need to move. Segment by: supply risk level, tariff exposure, IP risk, logistics cost, labor intensity, and lead time sensitivity.<br><br>
+      <strong>Step 3: Design country alternatives</strong> — For high-risk categories: Vietnam, India, Mexico, Eastern Europe are most common China+1 options. Selection depends on category — labor-intensive → Vietnam/India; North America-serving → Mexico; high-tech → trusted allies.<br><br>
+      <strong>Step 4: Phased transition</strong> — Don't move everything at once. Phase 1 (0–12 months): Qualify one alternative supplier per critical category. Phase 2 (12–24 months): Dual-source critical categories. Phase 3 (24–36 months): Reduce China from 80% to 50–60% for high-risk categories.<br><br>
+      <strong>Step 5: Build total cost model</strong> — China alternatives often cost 15–25% more. Build business case showing cost of moving vs. cost of NOT moving (disruption risk, tariff exposure, reputational risk).<br><br>
+      The key CPO message: resilience has a cost. Our job is to optimize the resilience/cost tradeoff.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q13: How do you build a business case for procurement technology investment? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      A procurement tech business case must speak the CFO's language — ROI, payback period, and risk reduction. Here's my structure:<br><br>
+      <strong>1. Define current-state costs:</strong> How much does current process cost? Manual processing hours × loaded labor rate. Maverick spend that could be contracted. Missed savings due to poor data. Risk exposure from ungoverned supplier base.<br><br>
+      <strong>2. Quantify benefits of new platform:</strong> Additional savings from better analytics (typically 2–4% of managed spend). Processing cost reduction (touchless invoicing can save $20–40/invoice). Compliance improvement value. Risk mitigation value.<br><br>
+      <strong>3. Structure the ROI:</strong> Platform cost (license + implementation + change management) vs. cumulative benefits over 3 years. Typical large-scale S2P implementation: $5–15M investment generates $50–150M savings = 10:1 ROI.<br><br>
+      <strong>4. Risk mitigation framing:</strong> Also frame it as risk reduction — "without this, we have $X of spend with no visibility, $Y of maverick spend, and $Z of contract compliance risk."<br><br>
+      Present to CFO with: Current cost, Future state cost, Annual benefit, Payback period (usually 18–24 months), and 3-year NPV.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q14: How do you handle a major supply chain disruption? Walk me through your crisis protocol. <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      Supply chain disruptions require immediate, structured response. My crisis protocol:<br><br>
+      <strong>Hour 1–4: Activate Crisis Command</strong> — Form a cross-functional war room (procurement, supply chain, manufacturing, finance, legal). Assign a single incident commander. Stop all non-essential work.<br><br>
+      <strong>Hour 4–12: Impact Assessment</strong> — Map all affected suppliers and components. Calculate weeks of inventory coverage. Identify which production lines or customers are at risk and by when.<br><br>
+      <strong>Hour 12–24: Outreach</strong> — Contact ALL affected suppliers. Get daily updates on: when operations resume, available inventory, alternative manufacturing options.<br><br>
+      <strong>Hour 24–48: Alternative Sourcing</strong> — Emergency RFQ to all qualified alternates. Accept premium pricing if needed — the cost of downtime far exceeds a 20% premium on components. Explore customer demand re-sequencing to manage limited supply.<br><br>
+      <strong>Hour 48–72: Stakeholder Communication</strong> — Deliver clear update to CEO/CFO: impact, bridge plan, cost, timeline. Communicate to affected customers proactively.<br><br>
+      <strong>Post-crisis: Learn & Redesign</strong> — Root cause analysis. What failed? Single sourcing, no safety stock, no alternate suppliers? Implement permanent resilience improvements.<br><br>
+      The best crisis response is a crisis you were prepared for. Pre-built alternate supplier relationships and crisis playbooks reduce response time from days to hours.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q15: Case Question: A key supplier just announced they're going bankrupt. You have $50M of spend and 60 days of inventory. What do you do? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer (Structured Case Response):</strong><br><br>
+      <strong>Immediate (Week 1):</strong><br>
+      • Verify the news — contact supplier CEO directly for actual status and timeline<br>
+      • Secure existing inventory — pre-pay or post collateral to get all in-transit and warehouse stock shipped immediately<br>
+      • Lock down any tooling, dies, or intellectual property held at the supplier's facility<br>
+      • Review contract for step-in rights and bankruptcy provisions<br><br>
+      <strong>Short-term (Weeks 2–4):</strong><br>
+      • Emergency qualification of alternate suppliers — expedited supplier assessment<br>
+      • Explore whether the bankrupt company can be acquired/rescued (we or a competitor)<br>
+      • Could a competitor's supplier capacity be shared temporarily?<br>
+      • Assess whether product can be redesigned to use an alternate component<br>
+      • Negotiate emergency supply agreement with a competitor's supplier (happens more than you'd think)<br><br>
+      <strong>Medium-term (Months 2–6):</strong><br>
+      • Transition to 2–3 alternate suppliers (dual/multi-source permanently)<br>
+      • Redesign supply chain to eliminate single-source dependency in this category<br>
+      • Implement supplier financial health monitoring to catch this earlier next time<br><br>
+      <strong>The key lesson:</strong> This situation should never be a surprise. Supplier financial monitoring, credit checks, and dual-sourcing policies are fundamental risk management practices that prevent this scenario.
+    </div>
+  </div>
+
+  <hr>
+  <h3>🤖 AI & Technology Interview Questions</h3>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q16: How is AI changing procurement? What are the most impactful use cases? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      AI is fundamentally transforming every step of the sourcing process. The most impactful use cases today are:<br><br>
+      <strong>Spend Analytics:</strong> AI classifies and cleans spend data with 95%+ accuracy in hours vs. weeks manually. This gives category managers much faster insights into where to focus.<br>
+      <strong>Supplier Risk Monitoring:</strong> AI continuously monitors thousands of data signals — news, financial reports, social media, regulatory filings — to predict supplier risk before it materializes. This moves us from reactive to proactive risk management.<br>
+      <strong>GenAI for Document Creation:</strong> Generating RFPs, contracts, scorecards in minutes. This is a massive productivity multiplier for procurement teams.<br>
+      <strong>Price Forecasting:</strong> ML models can predict commodity price movements with reasonable accuracy 3–6 months out, enabling better timing of contracts and hedging decisions.<br>
+      <strong>Autonomous P2P:</strong> For routine, catalog-based purchases, AI can handle the entire procure-to-pay process without human intervention.<br><br>
+      The CPOs who are winning today are treating AI as a strategic capability — investing in clean data, integrated platforms, and team upskilling.
+    </div>
+  </div>
+
+  <div class="iq" onclick="toggleIQ(this)">
+    <div class="iq-q">Q17: Compare SAP Ariba, Coupa, and GEP. Which would you recommend and why? <span>▼</span></div>
+    <div class="iq-a">
+      <strong>Model Answer:</strong><br>
+      All three are strong enterprise S2P platforms, but they serve different needs:<br><br>
+      <strong>SAP Ariba</strong> — Best if you're already on SAP ERP. Has the largest supplier network (5M+ suppliers). Strong in direct materials sourcing. Complex to implement but most comprehensive. Best for large enterprises with complex direct/indirect spend. Weakness: UX can be poor; expensive.<br><br>
+      <strong>Coupa</strong> — Best user experience in the market. Strong community intelligence — real benchmarking data from thousands of companies. Excellent P2P module. Best for companies prioritizing adoption rates and ease of use. Weakness: less configurable than Ivalua; newer in direct sourcing.<br><br>
+      <strong>GEP SMART</strong> — Most AI-native of the three. Unified source-to-pay with strong analytics. Good for companies wanting cutting-edge AI capabilities. Strength: AI features, unified platform. Weakness: smaller supplier network than Ariba; less market presence.<br><br>
+      My recommendation depends on context:<br>
+      • SAP-heavy, large direct spend, complex global operations → <strong>Ariba</strong><br>
+      • Strong adoption is critical, mostly indirect spend → <strong>Coupa</strong><br>
+      • AI-first strategy, want most innovative platform → <strong>GEP</strong><br>
+      • Highly complex, regulated, need maximum configurability → <strong>Ivalua</strong>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOOLKIT
+════════════════════════════════════════════════════════════ -->
+<section id="toolkit" class="section">
+<div class="content-wrap">
+  <div class="level-header" style="background:#fdf8ee;border-color:var(--gold);border-left:6px solid var(--gold)">
+    <span class="level-tag" style="color:var(--gold)">🛠 Practical Toolkit</span>
+    <h2>Templates, Frameworks & Tools</h2>
+    <p>Ready-to-use templates for RFP, supplier scorecard, should-cost model, and more. Adapt these to your organization's needs.</p>
+  </div>
+
+  <!-- Template 1 — RFP -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">T1</div>
+      <div class="module-title">RFP Template — Request for Proposal</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+<div class="template-box">REQUEST FOR PROPOSAL (RFP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COMPANY:          [Your Company Name]
+RFP REFERENCE:    RFP-[YYYY]-[CATEGORY]-[###]
+ISSUE DATE:       [Date]
+RESPONSE DUE:     [Date & Time]
+CATEGORY:         [Category Name]
+PROCUREMENT LEAD: [Name, Email, Phone]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 1: INTRODUCTION & BACKGROUND
+────────────────────────────────────────
+1.1 Company Overview
+    [Brief description of your company, industry, size]
+
+1.2 Purpose of this RFP
+    [Why you are issuing this RFP, what you want to achieve]
+
+1.3 Scope of Supply / Services Required
+    [Detailed description of what you need]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 2: REQUIREMENTS
+────────────────────────────────────────
+2.1 Technical/Product Requirements
+    [Specifications, standards, certifications required]
+
+2.2 Volume / Quantity
+    [Estimated annual volume, contract duration]
+
+2.3 Delivery Requirements
+    [Lead time, delivery locations, frequency]
+
+2.4 Quality Requirements
+    [Quality standards, inspection, testing requirements]
+
+2.5 ESG Requirements
+    [Sustainability, labor standards, certifications]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 3: SUPPLIER INFORMATION REQUIRED
+────────────────────────────────────────
+3.1 Company Profile
+    - Year founded, ownership structure, revenue
+    - Number of employees, key locations
+    - References (3 customers in similar industry)
+
+3.2 Financial Information
+    - Last 2 years audited financial statements
+    - Credit rating if available
+
+3.3 Capability Evidence
+    - Relevant certifications (ISO 9001, ISO 14001, etc.)
+    - Past performance examples
+    - Key personnel and management team
+
+3.4 Risk & Compliance
+    - Business continuity plan
+    - Cybersecurity certifications
+    - ESG/Sustainability programs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 4: PRICING SCHEDULE
+────────────────────────────────────────
+Please complete the attached Pricing Schedule Tab.
+Provide pricing for:
+  - Base price per unit / service
+  - Volume discount tiers
+  - Price validity period
+  - Escalation mechanism
+  - Any additional charges (transport, tooling, etc.)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 5: PROPOSED COMMERCIAL TERMS
+────────────────────────────────────────
+5.1 Proposed contract duration
+5.2 Payment terms requested
+5.3 Warranty terms
+5.4 Liability caps
+5.5 Key contract conditions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 6: EVALUATION CRITERIA
+────────────────────────────────────────
+Responses will be evaluated on:
+  - Technical capability & fit:        30%
+  - Total cost of ownership (price):   35%
+  - Quality & reliability:             15%
+  - Service & support capability:      10%
+  - ESG & sustainability:              10%
+  TOTAL:                              100%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 7: PROCESS & TIMELINE
+────────────────────────────────────────
+  RFP Issued:          [Date]
+  Q&A Deadline:        [Date]
+  Q&A Responses:       [Date]
+  Proposals Due:       [Date]
+  Supplier Shortlist:  [Date]
+  Presentations:       [Date]
+  Final Decision:      [Date]
+  Contract Start:      [Date]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+By submitting a proposal, suppliers agree to the process
+rules, confidentiality requirements, and that selection
+does not constitute a binding commitment.
+
+Questions: [Procurement Lead Email]
+</div>
+    </div>
+  </div>
+
+  <!-- Template 2 — Supplier Scorecard -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">T2</div>
+      <div class="module-title">Supplier Performance Scorecard Template</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+<div class="template-box">SUPPLIER PERFORMANCE SCORECARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SUPPLIER:      [Supplier Name]
+PERIOD:        [Q1/Q2/Q3/Q4 YYYY]
+CATEGORY:      [Category]
+REVIEWED BY:   [Procurement Manager]
+DATE:          [Date]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCORING GUIDE:
+  5 = Exceptional (exceeds all targets)
+  4 = Good       (meets all, exceeds some)
+  3 = Acceptable (meets most targets)
+  2 = Needs Improvement (below target)
+  1 = Unacceptable (significantly below target)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DIMENSION 1: QUALITY (Weight: 30%)
+──────────────────────────────────────
+KPI                        Target   Actual   Score
+On-time delivery            >95%   ______   ___/5
+Quality acceptance rate     >98%   ______   ___/5
+Defect rate (PPM)          <1000   ______   ___/5
+Customer complaints           <5   ______   ___/5
+Documentation accuracy       >99%  ______   ___/5
+                         SUBTOTAL:          ___/25
+
+DIMENSION 2: DELIVERY (Weight: 25%)
+──────────────────────────────────────
+Lead time compliance        >90%   ______   ___/5
+Fill rate / order complete  >97%   ______   ___/5
+Emergency order response    <48hr  ______   ___/5
+Forecast accuracy           >85%   ______   ___/5
+                         SUBTOTAL:          ___/20
+
+DIMENSION 3: COST (Weight: 25%)
+──────────────────────────────────────
+Price competitiveness                        ___/5
+Cost reduction contributions                 ___/5
+Invoice accuracy             >99%  ______   ___/5
+Cost transparency                            ___/5
+                         SUBTOTAL:          ___/20
+
+DIMENSION 4: RELATIONSHIP (Weight: 10%)
+──────────────────────────────────────
+Communication responsiveness                 ___/5
+Problem escalation & resolution              ___/5
+Proactive reporting                          ___/5
+                         SUBTOTAL:          ___/15
+
+DIMENSION 5: ESG (Weight: 10%)
+──────────────────────────────────────
+Environmental compliance                     ___/5
+Labor practice compliance                    ___/5
+Corrective action completion                 ___/5
+                         SUBTOTAL:          ___/15
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOTAL WEIGHTED SCORE:                       ___/100
+
+CLASSIFICATION:
+  80–100: Preferred / Strategic Supplier ⭐
+  60–79:  Approved Supplier ✅
+  40–59:  Development Supplier — improvement plan required ⚠️
+  <40:    At-Risk Supplier — corrective action / exit plan 🚫
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ACTION ITEMS (agreed at review):
+1. _____________________________________ Due: _____
+2. _____________________________________ Due: _____
+3. _____________________________________ Due: _____
+
+Next Review Date: _______________________________
+Signatures: Buyer ___________ Supplier ___________
+</div>
+    </div>
+  </div>
+
+  <!-- Template 3 — Should-Cost -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">T3</div>
+      <div class="module-title">Should-Cost Model Template</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+<div class="template-box">SHOULD-COST MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRODUCT/SERVICE: [Description]
+CATEGORY:        [Category Name]
+ANALYST:         [Your Name]
+DATE:            [Date]
+SUPPLIER:        [Supplier Name]
+ANNUAL VOLUME:   [Quantity]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION A: DIRECT MATERIALS
+──────────────────────────────────────
+Material Component    Qty/Unit   Unit Cost   Total Cost
+_________________     _______    _______     _______
+_________________     _______    _______     _______
+_________________     _______    _______     _______
+Scrap/Waste Factor:                          +____%
+          DIRECT MATERIALS TOTAL:           $______
+
+SECTION B: DIRECT LABOR
+──────────────────────────────────────
+Operation Step     Hours/Unit   Rate/Hour   Total Cost
+_____________      _________    _________   _________
+_____________      _________    _________   _________
+          DIRECT LABOR TOTAL:              $______
+
+SECTION C: MANUFACTURING OVERHEAD
+──────────────────────────────────────
+[Typically 20–40% of direct cost]
+  Factory overhead (utilities, equipment):   $______
+  Quality control:                           $______
+  Packaging:                                 $______
+          MANUFACTURING OVERHEAD TOTAL:     $______
+
+          COST OF GOODS MANUFACTURED:       $______
+
+SECTION D: SG&A (Selling, General & Admin)
+──────────────────────────────────────
+[Typically 8–15% of COGM]
+  SG&A:                                     $______
+
+SECTION E: PROFIT MARGIN
+──────────────────────────────────────
+[Typically 8–15% for manufacturing]
+  Profit Margin (___%):                     $______
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SHOULD-COST PRICE:                          $______
+SUPPLIER'S QUOTED PRICE:                    $______
+VARIANCE (OPPORTUNITY):                     $______
+VARIANCE %:                                   ___%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NEGOTIATION NOTES:
+Key cost drivers to challenge: _________________
+Negotiation target: $______ (___% reduction)
+Walk-away price: $______
+BATNA: _______________________________________
+</div>
+    </div>
+  </div>
+
+  <!-- Template 4 — Category Strategy 1-Pager -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div class="module-num" style="background:var(--gold);color:var(--ink)">T4</div>
+      <div class="module-title">Category Strategy — Executive Summary Template</div>
+      <div class="module-arrow">▼</div>
+    </div>
+    <div class="module-body">
+<div class="template-box">CATEGORY STRATEGY EXECUTIVE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CATEGORY:           [Category Name]
+CATEGORY MANAGER:   [Name]
+APPROVAL DATE:      [Date]
+STRATEGY PERIOD:    [YYYY–YYYY]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CATEGORY SNAPSHOT
+──────────────────────────────────────
+Annual Spend:         $________
+# of Suppliers:       ________
+# of Business Units:  ________
+Kraljic Position:     [ ] Routine  [ ] Leverage
+                      [ ] Bottleneck  [ ] Strategic
+Contract Coverage:    ________%
+
+STRATEGIC OBJECTIVES (3 years)
+──────────────────────────────────────
+1. Cost: Reduce TCO by ___% = $_______ in savings
+2. Quality: Improve acceptance rate to ___%
+3. Risk: Dual-source top __ critical items
+4. ESG: 100% strategic suppliers EcoVadis assessed
+5. Innovation: Implement __ supplier-driven innovations
+
+SOURCING STRATEGY SELECTED
+──────────────────────────────────────
+[ ] Competitive Bidding (Leverage category)
+[ ] Strategic Partnership (Strategic category)
+[ ] Single Source (Technical monopoly)
+[ ] Dual/Multi Source (Risk mitigation)
+[ ] Global Sourcing
+[ ] Nearshoring / Regionalization
+[ ] Supplier Development
+
+KEY INITIATIVES & TIMELINE
+──────────────────────────────────────
+Initiative            Owner    Due      $ Impact
+______________________  ___    Q_YYYY   $________
+______________________  ___    Q_YYYY   $________
+______________________  ___    Q_YYYY   $________
+______________________  ___    Q_YYYY   $________
+
+RISKS & MITIGATIONS
+──────────────────────────────────────
+Risk 1: ________________ Mitigation: ____________
+Risk 2: ________________ Mitigation: ____________
+
+STAKEHOLDERS
+──────────────────────────────────────
+Sponsor: _______________ Function: ______________
+Key Partners: ___________________________________
+
+APPROVED BY:
+CPO: _________________ CFO: ________________
+Date: ____________________________________________
+</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHEAT SHEETS
+════════════════════════════════════════════════════════════ -->
+<section id="cheatsheet" class="section">
+<div class="content-wrap">
+  <div class="level-header" style="background:#fdf8ee;border-color:var(--gold);border-left:6px solid var(--gold)">
+    <span class="level-tag" style="color:var(--gold)">📋 Cheat Sheets</span>
+    <h2>Quick Reference Summaries</h2>
+    <p>Print these. Keep them at your desk. Use them in interviews and daily work.</p>
+  </div>
+
+  <h3>📘 Beginner Cheat Sheet</h3>
+  <div class="cheat">
+    <div class="cheat-card g">
+      <h4>7-Step Sourcing Process</h4>
+      <ol style="padding-left:16px;font-size:13px;">
+        <li>Spend Analysis</li>
+        <li>Supply Market Analysis</li>
+        <li>Develop Strategy</li>
+        <li>RFI / RFP / RFQ</li>
+        <li>Evaluate & Negotiate</li>
+        <li>Award Contract</li>
+        <li>Manage & Improve</li>
+      </ol>
+    </div>
+    <div class="cheat-card g">
+      <h4>Key Terms</h4>
+      <ul style="font-size:13px;list-style:none;padding:0;">
+        <li>🔹 RFI = Gather info</li>
+        <li>🔹 RFQ = Get price</li>
+        <li>🔹 RFP = Get solution</li>
+        <li>🔹 TCO = Full life cost</li>
+        <li>🔹 SLA = Performance standard</li>
+        <li>🔹 PO = Order document</li>
+        <li>🔹 KPI = Metric to measure</li>
+        <li>🔹 BATNA = Your backup plan</li>
+      </ul>
+    </div>
+    <div class="cheat-card g">
+      <h4>TCO Components</h4>
+      <ul style="font-size:13px;">
+        <li>Acquisition (price, shipping)</li>
+        <li>Operational (maintenance, energy)</li>
+        <li>End-of-life (disposal)</li>
+        <li>Hidden (quality, downtime)</li>
+      </ul>
+      <br>
+      <h4>Key Risk Types</h4>
+      <ul style="font-size:13px;">
+        <li>Single-source</li>
+        <li>Financial (supplier bankrupt)</li>
+        <li>Geopolitical (tariffs)</li>
+        <li>Quality / delivery</li>
+      </ul>
+    </div>
+    <div class="cheat-card g">
+      <h4>ESG in Sourcing</h4>
+      <ul style="font-size:13px;">
+        <li><strong>E</strong> = Carbon, waste, energy</li>
+        <li><strong>S</strong> = Fair labor, safety, diversity</li>
+        <li><strong>G</strong> = Ethics, transparency, anti-bribery</li>
+      </ul>
+      <br>
+      <h4>KPIs to Know</h4>
+      <ul style="font-size:13px;">
+        <li>OTD > 95%</li>
+        <li>Quality > 98%</li>
+        <li>Savings 5–8%/year</li>
+        <li>Contract coverage > 85%</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+  <h3>📗 Intermediate Cheat Sheet</h3>
+  <div class="cheat">
+    <div class="cheat-card b">
+      <h4>Kraljic Matrix</h4>
+      <ul style="font-size:13px;list-style:none;padding:0;">
+        <li>⭐ Strategic → Partner deeply</li>
+        <li>💰 Leverage → Compete hard</li>
+        <li>⚡ Bottleneck → Secure supply</li>
+        <li>📦 Routine → Automate</li>
+      </ul>
+    </div>
+    <div class="cheat-card b">
+      <h4>Negotiation Essentials</h4>
+      <ul style="font-size:13px;">
+        <li>Always know your BATNA</li>
+        <li>Find the ZOPA first</li>
+        <li>Anchor low (as buyer)</li>
+        <li>Use silence strategically</li>
+        <li>Never give; always trade</li>
+        <li>Competitive tension = power</li>
+      </ul>
+    </div>
+    <div class="cheat-card b">
+      <h4>Should-Cost Formula</h4>
+      <div style="font-size:13px;font-family:'IBM Plex Mono',monospace;background:#e8f0ff;padding:8px;border-radius:2px;">
+        Materials (45%)<br>
+        + Labor (18%)<br>
+        + Overhead (15%)<br>
+        + SG&A (10%)<br>
+        + Profit (12%)<br>
+        = Should-Cost
+      </div>
+    </div>
+    <div class="cheat-card b">
+      <h4>Category Strategy Steps</h4>
+      <ol style="font-size:13px;padding-left:16px;">
+        <li>Define scope</li>
+        <li>Spend profile</li>
+        <li>Stakeholder needs</li>
+        <li>Market analysis (Porter's 5)</li>
+        <li>SWOT</li>
+        <li>Strategize (Kraljic)</li>
+        <li>Initiatives + roadmap</li>
+        <li>Gain alignment</li>
+      </ol>
+    </div>
+    <div class="cheat-card b">
+      <h4>Key Contract Clauses</h4>
+      <ul style="font-size:13px;">
+        <li>Price adjustment (index)</li>
+        <li>Term for convenience</li>
+        <li>Liquidated damages</li>
+        <li>IP ownership</li>
+        <li>Step-in rights</li>
+        <li>Most favored customer</li>
+        <li>Force majeure</li>
+        <li>Audit rights</li>
+      </ul>
+    </div>
+    <div class="cheat-card b">
+      <h4>RACI in Sourcing</h4>
+      <ul style="font-size:13px;list-style:none;padding:0;">
+        <li><strong>R</strong> = Does the work</li>
+        <li><strong>A</strong> = Owns outcome</li>
+        <li><strong>C</strong> = Input needed</li>
+        <li><strong>I</strong> = Kept informed</li>
+      </ul>
+      <br>
+      <p style="font-size:12px;">Procurement is A for strategy; Business Unit is R for requirements</p>
+    </div>
+  </div>
+
+  <hr>
+  <h3>📕 Advanced Cheat Sheet</h3>
+  <div class="cheat">
+    <div class="cheat-card p">
+      <h4>Operating Model Options</h4>
+      <ul style="font-size:13px;">
+        <li>Centralized → Max scale</li>
+        <li>Decentralized → Max agility</li>
+        <li>Hybrid → Best of both ✅</li>
+      </ul>
+      <br>
+      <h4>Maturity Levels</h4>
+      <ul style="font-size:13px;list-style:none;padding:0;">
+        <li>1 = Reactive / Clerical</li>
+        <li>2 = Proactive / Cost</li>
+        <li>3 = Strategic ← most today</li>
+        <li>4 = Collaborative</li>
+        <li>5 = Autonomous / AI</li>
+      </ul>
+    </div>
+    <div class="cheat-card p">
+      <h4>3-Year Transformation</h4>
+      <ul style="font-size:13px;">
+        <li><strong>Yr 1:</strong> Stabilize + Quick wins</li>
+        <li><strong>Yr 2:</strong> Optimize + Technology</li>
+        <li><strong>Yr 3:</strong> Transform + AI + ESG</li>
+      </ul>
+      <br>
+      <h4>100-Day CPO Plan</h4>
+      <ul style="font-size:13px;">
+        <li>Day 1–30: Listen & diagnose</li>
+        <li>Day 30–60: Build the case</li>
+        <li>Day 60–100: Quick wins</li>
+      </ul>
+    </div>
+    <div class="cheat-card p">
+      <h4>Global Sourcing Options</h4>
+      <ul style="font-size:13px;">
+        <li>Offshoring → Cheapest unit cost</li>
+        <li>Nearshoring → Speed + cost</li>
+        <li>Reshoring → Risk reduction</li>
+        <li>Friend-shoring → Geopolitical</li>
+        <li>Multi-sourcing → Resilience</li>
+        <li>China+1 → Current best practice</li>
+      </ul>
+    </div>
+    <div class="cheat-card p">
+      <h4>Crisis Response Protocol</h4>
+      <ul style="font-size:13px;">
+        <li>0–4hr: Activate war room</li>
+        <li>4–12hr: Impact map</li>
+        <li>12–24hr: Supplier outreach</li>
+        <li>24–48hr: Emergency RFQ</li>
+        <li>48–72hr: CEO brief</li>
+        <li>Post: Redesign & resilience</li>
+      </ul>
+    </div>
+    <div class="cheat-card p">
+      <h4>Supplier Innovation Tiers</h4>
+      <ol style="font-size:13px;padding-left:16px;">
+        <li>Efficiency (cost reduction)</li>
+        <li>Product/process co-dev</li>
+        <li>Disruptive / first-mover</li>
+      </ol>
+      <br>
+      <h4>ESG Pillars</h4>
+      <ul style="font-size:13px;">
+        <li>E: Emissions, waste, energy</li>
+        <li>S: Labor, safety, diversity</li>
+        <li>G: Ethics, audit rights, code</li>
+      </ul>
+    </div>
+    <div class="cheat-card p">
+      <h4>Risk Heat Map Colors</h4>
+      <ul style="font-size:13px;list-style:none;padding:0;">
+        <li>🔴 HIGH = Act now; escalate</li>
+        <li>🟠 MED-HIGH = Active monitoring</li>
+        <li>🟡 MEDIUM = Watch list</li>
+        <li>🟢 LOW = Routine monitoring</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+  <h3>🤖 AI & GenAI Cheat Sheet</h3>
+  <div class="cheat">
+    <div class="cheat-card gold">
+      <h4>AI Use Cases by Step</h4>
+      <ul style="font-size:13px;">
+        <li>Spend: Auto-classification</li>
+        <li>Market: Real-time intelligence</li>
+        <li>Risk: Continuous monitoring</li>
+        <li>RFP: GenAI auto-generation</li>
+        <li>Eval: Auto-scoring</li>
+        <li>Contract: AI review & extract</li>
+        <li>Price: ML forecasting</li>
+      </ul>
+    </div>
+    <div class="cheat-card gold">
+      <h4>Top Platforms</h4>
+      <ul style="font-size:13px;">
+        <li>SAP Ariba → Large SAP enterprises</li>
+        <li>Coupa → Best UX, mid-market</li>
+        <li>GEP → AI-native</li>
+        <li>Ivalua → Complex/regulated</li>
+        <li>EcoVadis → ESG scoring</li>
+        <li>Sievo → Analytics</li>
+        <li>Icertis → Contract AI</li>
+      </ul>
+    </div>
+    <div class="cheat-card gold">
+      <h4>Future Trends</h4>
+      <ul style="font-size:13px;">
+        <li>Autonomous procurement</li>
+        <li>Predictive sourcing</li>
+        <li>Digital twins</li>
+        <li>Blockchain provenance</li>
+        <li>Embedded AI in ERP</li>
+      </ul>
+      <br>
+      <h4>GenAI Killer Apps</h4>
+      <ul style="font-size:13px;">
+        <li>Auto-RFP generation</li>
+        <li>Contract drafting & redline</li>
+        <li>Supplier comparison summaries</li>
+        <li>Negotiation coaching</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+// Section navigation
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Highlight nav
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.getAttribute('onclick').includes(`'${id}'`)) b.classList.add('active');
+  });
+}
+
+// Module toggle
+function toggleModule(header) {
+  const module = header.parentElement;
+  module.classList.toggle('open');
+}
+
+// IQ toggle
+function toggleIQ(el) {
+  el.classList.toggle('open');
+}
+
+// Quiz
+function answerQuiz(qid, el, correct) {
+  const container = document.getElementById(qid);
+  container.querySelectorAll('.quiz-option').forEach(o => {
+    o.classList.remove('correct', 'wrong');
+    o.style.pointerEvents = 'none';
+  });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    container.querySelectorAll('.quiz-option').forEach(o => {
+      if (o.getAttribute('onclick').includes(',true)')) o.classList.add('correct');
+    });
+  }
+}
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+// Open first module of active section
+document.querySelectorAll('.section').forEach(s => {
+  const firstModule = s.querySelector('.module');
+  if (firstModule) firstModule.classList.add('open');
+});
+</script>
+</body>
+</html>
